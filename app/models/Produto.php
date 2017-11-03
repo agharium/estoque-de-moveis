@@ -7,6 +7,7 @@
         private $descricao;
         private $img;
         private $preco;
+        private $quantidade;
         private $Usuario;
 
         public function setCodigo($codigo){
@@ -47,6 +48,14 @@
 
         public function getPreco(){
             return $this->preco;
+        }
+
+        public function setQuantidade($quantidade){
+            $this->quantidade = $quantidade;
+        }
+
+        public function getQuantidade(){
+            return $this->quantidade;
         }
 
         public function setUsuario($Usuario){

@@ -1,4 +1,5 @@
 <?php
+/*
     require_once("Produto.php");
     require_once("Usuario.php");
 
@@ -58,4 +59,5 @@
             return $this->Usuario;
         }
     }
+*/
 ?>
