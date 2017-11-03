@@ -5,4 +5,4 @@ Colaboradores:
 - [João Miguel Erig Bohn](https://github.com/oaojmiguel/)
 - [José Paulo Oliveira Filho](https://github.com/agharium/)
 - [Lucas Jardim da Silva](https://github.com/lucasjardi/)
-- [Róbson Rodrigues da Rosa](https:/github.com/robsonrr95/)
+- [Róbson Rodrigues da Rosa](https://github.com/RobsonRR95/)
