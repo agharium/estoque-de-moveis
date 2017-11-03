@@ -8,7 +8,6 @@
         private $img;
         private $preco;
         private $quantidade;
-        private $Usuario;
 
         public function setCodigo($codigo){
             $this->codigo = $codigo;
@@ -58,12 +57,5 @@
             return $this->quantidade;
         }
 
-        public function setUsuario($Usuario){
-            $this->Usuario = $Usuario;
-        }
-
-        public function getUsuario(){
-            return $this->Usuario;
-        }
     }
 ?>
