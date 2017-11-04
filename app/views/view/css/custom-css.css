@@ -4,8 +4,16 @@ body {
 	padding: 50px;
 }
 
+footer, .padding {
+	margin: 50px; 
+}
+
 .half {
 	width: 50vh;
+}
+
+.half-plus-half {
+	width: 90vh;
 }
 
 .flex {
@@ -35,4 +43,8 @@ body {
 
 .loaded {
     opacity: 1 !important;
+}
+
+footer {
+	padding: 25px;
 }

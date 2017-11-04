@@ -1,5 +1,6 @@
 <?php
 	$title = "Estoque de Móveis - Login";
+	$footer = false;
 	require_once("../head.php");
 ?>
 	<h1 class="logo text-center fadein" id="logo"> Controle de Estoque de Móveis </h1>
