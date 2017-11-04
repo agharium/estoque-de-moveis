@@ -5,6 +5,6 @@
 </head>
 <body>
 <h1>Homepage</h1>
-<p>Simples aplicacao PHP com MVC</p>
+<p>Simples aplicacao PHP com MVC-teste</p>
 </body>
 </html>
