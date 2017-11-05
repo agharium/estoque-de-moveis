@@ -11,8 +11,8 @@ Class App{
 	{
 		if (isset($_GET["url"])) {
 			$this->init();	
-		}else{
-			require_once "app/views/home.php";
+		} else{
+			require_once 'app/views/home/login/index.php';
 		}
 
 	}
