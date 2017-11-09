@@ -4,10 +4,6 @@ body {
 	padding: 50px;
 }
 
-footer, .padding {
-	margin: 50px; 
-}
-
 .half {
 	width: 50vh;
 }
@@ -32,6 +28,10 @@ footer, .padding {
 
 .link {
 	font-size: 14px;
+}
+
+.page-title {
+	margin-bottom: 50px;
 }
 
 /* logo */
