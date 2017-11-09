@@ -26,6 +26,14 @@ footer, .padding {
 	text-align: center;
 }
 
+.link-wrapper {
+	margin-top: 10px;
+}
+
+.link {
+	font-size: 14px;
+}
+
 /* logo */
 
 .logo {

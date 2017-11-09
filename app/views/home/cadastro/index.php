@@ -20,7 +20,11 @@
 				<input class="button-primary" type="submit" value="Começar" name="submitCadastro">
 				
 				<div class="float-right">
-					<h6 style="margin-top:10px"><a href="/estoque-de-moveis/home/login">Já é cadastrado?</a></h6>
+					<h6 class="link-wrapper">
+						<a class="link" href="/estoque-de-moveis/home/login">
+							Já é cadastrado?
+						</a>
+					</h6>
 				</div>
 			</fieldset>
 		</form>

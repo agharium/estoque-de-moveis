@@ -17,7 +17,7 @@
 				<input class="button-primary" type="submit" value="Entrar" name="submitLogin">
 				
 				<div class="float-right">
-					<h6 style="margin-top:10px"><a href="/estoque-de-moveis/home/cadastro">Não tem cadastro?</a></h6>
+					<h6 class="link"><a href="/estoque-de-moveis/home/cadastro">Não tem cadastro?</a></h6>
 				</div>
 			</fieldset>
 		</form>
@@ -29,6 +29,8 @@
 		}
 	</script>
 
+
+	<!-- ISSO AQUI EMBAIXO É MTO FEIOOOOOOOOOOOOOOOOO -->
 	<style type="text/css">
 		@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:100');
 
