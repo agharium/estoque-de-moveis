@@ -35,6 +35,18 @@ CREATE TABLE IF NOT EXISTS GERENTE(){
     FOREIGN KEY (usuario_codigo) REFERENCES USUARIO(usuario_codigo)
 }
 
+CREATE TABLE IF NOT EXISTS PRODUTO_SAIDA(
+    produto_codigo          INTEGER NOT NULL,
+    produto_saida_data      DATETIME,
+    FOREIGN KEY(produto_codigo) REFERENCES PRODUTO(produto_codigo)
+);
+
+CREATE TABLE IF NOT EXISTS PRODUTO_ENTRADA(
+    produto_codigo          INTEGER NOT NULL,
+    produto_entrada_data    DATETIME,
+    FOREIGN KEY(produto_codigo) REFERENCES PRODUTO(produto_codigo)
+);
+
 /*
     TABELA REMOVIDA
 CREATE TABLE IF NOT EXISTS ESTOQUE(
