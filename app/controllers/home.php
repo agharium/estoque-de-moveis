@@ -18,13 +18,16 @@ Class Home extends Controller {
 	// footer.php
 	// head.php
 
-	public function index()
-	{
+	public function index() {
 		$this->renderizar('login/index');
 	}
 
-	public function cadastro()
-	{
+	public function cadastro() {
 		$this->renderizar('cadastro/index');
 	}
+
+	public function dashboard() {
+		$this->renderizar('dashboard/index');
+	}
+
 }
