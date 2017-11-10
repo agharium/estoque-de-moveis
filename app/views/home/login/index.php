@@ -1,6 +1,6 @@
 <?php
 	$title = "Estoque de Móveis - Login";
-	$footer = false;
+	$footer = true;
 	require(HOME_PATH . "head.php");
 ?>
 	
