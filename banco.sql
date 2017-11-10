@@ -26,9 +26,7 @@ CREATE TABLE IF NOT EXISTS PRODUTO(
     produto_descricao       TEXT NOT NULL DEFAULT "Descrição do produto",
     produto_img             TEXT NOT NULL DEFAULT "",
     produto_preco           DOUBLE NOT NULL DEFAULT 0.0,
-    produto_quantidade      INTEGER NOT NULL DEFAULT 0,
-    usuario_codigo          INTEGER,
-    FOREIGN KEY (usuario_codigo) REFERENCES USUARIO(usuario_codigo)
+    produto_quantidade      INTEGER NOT NULL DEFAULT 0
 );
 
 CREATE TABLE IF NOT EXISTS GERENTE(){
