@@ -3,7 +3,6 @@
 	$footer = true;
 	require(HOME_PATH . "head.php");
 ?>
-	
 	<div class="container half">
 		<h2 class="text-center"> CADASTRO </h2>
 		<form class="flex" method="POST" action="?">

@@ -3,7 +3,6 @@
 	$footer = false;
 	require(HOME_PATH . "head.php");
 ?>
-
 	<div class="container">
 		<h2 class="text-center"> PRODUTOS </h2>
 		<div class="padding">
