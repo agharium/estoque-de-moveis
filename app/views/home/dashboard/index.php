@@ -61,7 +61,12 @@
 		}
 
 		tbody tr:hover {
-			background: red;
+			background: #2ecc71;
+			font-weight: 500;
+		}
+		
+		th, td {
+			text-align: center;
 		}
 	</style>
 <?php	
