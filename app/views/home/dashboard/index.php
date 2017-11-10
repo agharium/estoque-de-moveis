@@ -3,11 +3,12 @@
 	$footer = false;
 	require(HOME_PATH . "head.php");
 ?>
-	<h1 class="logo text-center fadein" id="logo"> Controle de Estoque de Móveis </h1>
+
+	<h1 class="logo text-center animated fadeInDown" > Controle de Estoque de Móveis </h1>
 	<div class="container">
 		<h2 class="text-center"> PRODUTOS </h2>
 		<div class="padding">
-			<table>
+			<table id="table">
 				<thead>
 					<tr>
 						<th>ID</th>
@@ -36,11 +37,41 @@
 	</div>
 	
 	<script type="text/javascript">
-		window.onload = function() {
-    		document.getElementById("logo").className += " loaded";
+		function load(){
+			tabelaHandler();
 		}
+
+		function tabelaHandler() {
+		    var table = document.getElementById("table");
+		    var rows = table.getElementsByTagName("tr");
+		    for (i = 0; i < rows.length; i++) {
+		        var currentRow = table.rows[i];
+		        var createClickHandler = 
+		            function(row) 
+		            {
+		                return function() { 
+                            var cell = row.getElementsByTagName("td")[0];
+                            var id = cell.innerHTML;
+                            alert("id:" + id);
+                     	};
+		            };
+
+		        currentRow.onclick = createClickHandler(currentRow);
+		    }
+		}
+
+		window.onload = load();
 	</script>
 
+	<style type="text/css">
+		tbody tr {
+			cursor: pointer;
+		}
+
+		tbody tr:hover {
+			background: red;
+		}
+	</style>
 <?php	
 	require(HOME_PATH . "footer.php");
 ?>

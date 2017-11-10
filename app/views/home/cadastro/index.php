@@ -4,7 +4,7 @@
 	require(HOME_PATH . "head.php");
 ?>
 	
-	<h1 class="logo text-center fadein" id="logo"> Controle de Estoque de Móveis </h1>
+	<h1 class="logo text-center animated fadeInDown"> Controle de Estoque de Móveis </h1>
 	<div class="container half">
 		<h2 class="text-center page-title"> CADASTRO </h2>
 		<form class="flex" method="POST" action="?">
@@ -30,12 +30,6 @@
 			</fieldset>
 		</form>
 	</div>
-	
-	<script type="text/javascript">
-		window.onload = function() {
-    		document.getElementById("logo").className += " loaded";
-		}
-	</script>
 
 <?php	
 	require(HOME_PATH . "footer.php");

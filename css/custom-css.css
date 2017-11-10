@@ -41,18 +41,6 @@ body {
 	margin-bottom: 50px;
 }
 
-.fadein {
-    opacity: 0;
-    -moz-transition: opacity 1.5s;
-    -webkit-transition: opacity 1.5s;
-    -o-transition: opacity 1.5s;
-    transition: opacity 1.5s;
-}
-
-.loaded {
-    opacity: 1 !important;
-}
-
 footer {
 	padding: 25px;
 }
