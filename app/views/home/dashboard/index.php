@@ -13,7 +13,6 @@
 						<th>Nome</th>
 						<th>Preço</th>
 						<th>Quantidade</th>
-						<th>Ações</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -35,10 +34,6 @@
 	</div>
 	
 	<script type="text/javascript">
-		function load(){
-			tabelaHandler();
-		}
-
 		function tabelaHandler() {
 		    var table = document.getElementById("table");
 		    var rows = table.getElementsByTagName("tr");
@@ -57,8 +52,7 @@
 		        currentRow.onclick = createClickHandler(currentRow);
 		    }
 		}
-
-		window.onload = load();
+		window.onload = tabelaHandler();
 	</script>
 
 	<style type="text/css">
