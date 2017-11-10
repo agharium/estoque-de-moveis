@@ -10,7 +10,6 @@
 </head>
 <body>
 	<div class="logo-container">
-		<h1 class="logo-main text-center animated fadeInDown" > C. E. M. </h1>
-		<h3 class="logo-sub text-center animated fadeInDown"> Controle de Estoque de Móveis </h3>
+		<h1 class="logo-initials text-center animated fadeInDown" > C. E. M. </h1>
+		<h3 class="text-center animated fadeInDown"> Controle de Estoque de Móveis </h3>
 	</div>
-	
