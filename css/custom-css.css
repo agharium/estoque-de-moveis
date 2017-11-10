@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:100');
+@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One|Roboto');
 
 body {
 	padding: 50px;
@@ -37,7 +37,7 @@ body {
 /* logo */
 
 .logo {
-	font-family: 'Roboto Slab', serif;
+	font-family: 'Julius Sans One', sans-serif;
 	margin-bottom: 50px;
 }
 
