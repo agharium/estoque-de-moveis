@@ -1,7 +1,7 @@
 <?php
 	$title = "Estoque de Móveis - Painel de Controle";
 	$footer = false;
-	require_once("../head.php");
+	require(HOME_PATH . "head.php");
 ?>
 	<h1 class="logo text-center fadein" id="logo"> Controle de Estoque de Móveis </h1>
 	<div class="container">
@@ -42,5 +42,5 @@
 	</script>
 
 <?php	
-	require_once("../footer.php");
+	require(HOME_PATH . "footer.php");
 ?>

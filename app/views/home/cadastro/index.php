@@ -1,7 +1,7 @@
 <?php
 	$title = "Estoque de Móveis - Cadastro";
 	$footer = true;
-	require(HOME_PATH. "head.php");
+	require(HOME_PATH . "head.php");
 ?>
 	
 	<h1 class="logo text-center fadein" id="logo"> Controle de Estoque de Móveis </h1>
@@ -38,5 +38,5 @@
 	</script>
 
 <?php	
-	require(HOME_PATH. "footer.php");
+	require(HOME_PATH . "footer.php");
 ?>
