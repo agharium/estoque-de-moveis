@@ -9,3 +9,4 @@
 	<title> <?php echo $title ?> </title>
 </head>
 <body>
+	<h1 class="logo text-center animated fadeInDown" > Controle de Estoque de Móveis </h1>

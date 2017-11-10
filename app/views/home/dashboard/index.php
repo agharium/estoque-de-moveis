@@ -4,7 +4,6 @@
 	require(HOME_PATH . "head.php");
 ?>
 
-	<h1 class="logo text-center animated fadeInDown" > Controle de Estoque de Móveis </h1>
 	<div class="container">
 		<h2 class="text-center"> PRODUTOS </h2>
 		<div class="padding">
