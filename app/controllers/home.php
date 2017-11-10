@@ -27,4 +27,9 @@ Class Home extends Controller {
 	{
 		$this->renderizar('cadastro/index');
 	}
+	
+	public function dashboard(){
+		$this->renderizar('dashboard/index');
+	}
+	
 }
