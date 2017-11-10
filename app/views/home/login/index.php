@@ -5,7 +5,7 @@
 ?>
 	
 	<div class="container half">
-		<h2 class="text-center page-title"> LOGIN </h2>
+		<h2 class="text-center"> LOGIN </h2>
 		<form class="flex" method="POST" action="?">
 			<fieldset>
 				<label for="usuario">Usuário</label>
