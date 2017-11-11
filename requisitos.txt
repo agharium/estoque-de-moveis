@@ -1,0 +1,2 @@
+vendedor só adiciona produto e vê detalhes do produto
+gerente pode adicionar, ver detalhes, editar e remover produtos
