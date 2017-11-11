@@ -46,10 +46,9 @@
 
 	<div class="slideout-sidebar">
 		<ul>
-			<li><i class="fa fa-home"></i> Home</li>
-			<li><i class="fa fa-user"></i> About Us</li>
-			<li><i class="fa fa-book"></i> Blog</li>
-			<li><i class="fa fa-envelope"></i> Contact</li>
+			<li><i class="fa fa-eye"></i> Detalhes </li>
+			<li><i class="fa fa-pencil"></i> Editar </li>
+			<li><i class="fa fa-trash-o"></i> Remover </li>
 		</ul>
 	</div>
 
@@ -59,42 +58,40 @@
 		var selectedRadio = null;
 		var lastSelectedRow = null;
 
-		$(document).ready(function(){
-			$("tbody tr").hover(function() {
-				var rowRadio = $(":first-child > :first-child", this);
+		$("tbody tr").hover(function() {
+			var rowRadio = $(":first-child > :first-child", this);
 
-				if (!rowRadio.is(':checked')){
-					$(this).toggleClass("tr-hover");
-				}
-		    });
+			if (!rowRadio.is(':checked')){
+				$(this).toggleClass("tr-hover");
+			}
+	    });
 
-			$("tbody tr").click(function() {
-				var rowRadio = $(":first-child > :first-child", this);
+		$("tbody tr").click(function() {
+			var rowRadio = $(":first-child > :first-child", this);
 
-				if(!rowRadio.is(':checked')){
-					document.cookie = "produto=" + $(this).find('td:nth-child(2)').html();
-					console.log("Cookie adicionado: " + document.cookie);
-			        
-			        rowRadio.prop("checked", true);
-			        $("#menu-toggle").prop("checked", true);
-			        selectedRadio = rowRadio;
-			        
-			        if (lastSelectedRow){
-			        	lastSelectedRow.toggleClass("tr-hover");
-			        }
-			        lastSelectedRow = $(this);
+			if(!rowRadio.is(':checked')){
+				document.cookie = "produto=" + $(this).find('td:nth-child(2)').html();
+				console.log("Cookie adicionado: " + document.cookie);
+		        
+		        rowRadio.prop("checked", true);
+		        $("#menu-toggle").prop("checked", true);
+		        selectedRadio = rowRadio;
+		        
+		        if (lastSelectedRow){
+		        	lastSelectedRow.toggleClass("tr-hover");
+		        }
+		        lastSelectedRow = $(this);
 
-				} else if (rowRadio.is(':checked')) {
-					document.cookie = "produto=" + 0;
-					console.log("Cookie removido: " + document.cookie);
+			} else if (rowRadio.is(':checked')) {
+				document.cookie = "produto=" + 0;
+				console.log("Cookie removido: " + document.cookie);
 
-			        rowRadio.prop("checked", false);
-			        $("#menu-toggle").prop("checked", false);
-			        selectedRadio = null;
-			        lastSelectedRow = null;
-				}
-		    });
-		});
+		        rowRadio.prop("checked", false);
+		        $("#menu-toggle").prop("checked", false);
+		        selectedRadio = null;
+		        lastSelectedRow = null;
+			}
+	    });
 	</script>
 
 <?php	
