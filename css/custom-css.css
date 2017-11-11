@@ -42,3 +42,23 @@ body {
 footer {
 	padding: 25px;
 }
+
+/* tabela */
+
+.tr-hover {
+	background: #2ecc71;
+	font-weight: 500;
+	cursor: pointer;
+}
+
+th, td {
+	text-align: center;
+}
+
+td:first-child, th:first-child {
+	display: none;
+}
+
+input[name="selected"] {
+  	pointer-events: none;
+}
