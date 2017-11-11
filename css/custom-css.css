@@ -58,7 +58,3 @@ th, td {
 td:first-child, th:first-child {
 	display: none;
 }
-
-input[name="selected"] {
-  	pointer-events: none;
-}
