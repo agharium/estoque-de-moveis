@@ -34,8 +34,8 @@
 		</div>
 	</div>
 	
-	<script type="text/javascript">
-		function tabelaHandler() {
+	<script>
+		/*function tabelaHandler() {
 		    var table = document.getElementById("table");
 		    var rows = table.getElementsByTagName("tr");
 		    for (i = 0; i < rows.length; i++) {
@@ -49,11 +49,17 @@
                             document.cookie = "produto=" + id;
                      	};
 		            };
-
 		        currentRow.onclick = createClickHandler(currentRow);
 		    }
 		}
-		window.onload = tabelaHandler();
+		window.onload = tabelaHandler();*/
+
+		$(document).ready(function(){
+		    $("table tr").hover(function() {
+		    	console.log($(this).closest('tr').find('td:first-child').html());
+		        $(this).toggleClass("tr-hover");
+		    });
+		});
 	</script>
 
 	<style type="text/css">
@@ -61,7 +67,9 @@
 			cursor: pointer;
 		}
 
-		tbody tr:hover {
+
+		/*tbody tr:hover*/
+		.tr-hover {
 			background: #2ecc71;
 			font-weight: 500;
 		}
@@ -70,6 +78,7 @@
 			text-align: center;
 		}
 	</style>
+
 <?php	
 	require(HOME_PATH . "footer.php");
 ?>

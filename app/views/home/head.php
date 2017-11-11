@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
 	<link rel="stylesheet" href="//rawgit.com/agharium/estoque-de-moveis/master/css/custom-css.css">
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<title> <?php echo $title ?> </title>
 </head>
 <body>
