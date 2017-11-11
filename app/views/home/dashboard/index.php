@@ -2,6 +2,7 @@
 	$title = "Estoque de Móveis - Painel de Controle";
 	$footer = false;
 	require(HOME_PATH . "head.php");
+	echo $_COOKIE["produto"];
 ?>
 	<div class="container">
 		<h2 class="text-center"> PRODUTOS </h2>
@@ -45,7 +46,7 @@
 		                return function() { 
                             var cell = row.getElementsByTagName("td")[0];
                             var id = cell.innerHTML;
-                            alert("id:" + id);
+                            document.cookie = "produto=" + id;
                      	};
 		            };
 
@@ -64,7 +65,7 @@
 			background: #2ecc71;
 			font-weight: 500;
 		}
-		
+
 		th, td {
 			text-align: center;
 		}
