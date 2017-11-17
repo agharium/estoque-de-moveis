@@ -5,7 +5,7 @@
 ?>
 	<div class="container half">
 		<h2 class="text-center"> CADASTRO </h2>
-		<form class="flex" method="POST" action="?">
+		<form class="flex" method="POST" action="/estoque-de-moveis/home/logar">
 			<fieldset>
 				<label for="usuario">Usuário</label>
 				<input type="text" id="usuario" name="usuario" required>
