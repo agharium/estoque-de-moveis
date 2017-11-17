@@ -15,7 +15,7 @@
 </head>
 <body>
 	<?php if ($title == "Estoque de Móveis - Painel de Controle"){
-		echo 
+		echo
 	"<input type='checkbox' id='menu-toggle' />
 	<div class='content-container'>";
 	} ?>

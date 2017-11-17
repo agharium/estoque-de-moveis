@@ -3,8 +3,8 @@
 	class Controller
 	{
 
-		public function renderizar($view)
+		public function renderizar($view, $dados=null)
 		{
-			require_once HOME_PATH. $view .".php";
+			require_once VIEW_PATH. "/". $view .".php";
 		}
 	}

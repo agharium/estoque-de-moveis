@@ -1,4 +1,5 @@
 <?php
+	require_once("Database.php");
 	require_once("Permissao.php");
 
 	class Usuario{
@@ -56,6 +57,37 @@
 
 		public function getPermissao(){
 			return $this->Permissao;
+		}
+
+		//boolean
+		public function login($email, $senha)
+		{
+			$conn = Database::getConnection();
+			$usuario_nome='';
+			$permissao_codigo='';
+
+			$stmt = $conn->prepare("SELECT usuario_nome,permissao_codigo
+				 										from usuario WHERE usuario_email = ? AND usuario_senha = ? LIMIT 1");
+			$stmt->bind_param("ss", $email, $senha);
+			$stmt->execute();
+			$stmt->bind_result($usuario_nome,$permissao_codigo);
+    	$stmt->store_result();
+
+			if($stmt->num_rows == 1)  //To check if the row exists
+        {
+            while($stmt->fetch()) //fetching the contents of the row
+						{
+							$_SESSION['logado'] = true;
+              $_SESSION['permission'] = $permissao_codigo;
+              $_SESSION['user'] = $usuario_nome;
+            }
+
+						$stmt->close();
+						return true;
+        }
+			$conn->close();
+			return false;
+
 		}
 	}
 ?>

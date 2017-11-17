@@ -10,9 +10,9 @@ Class App{
 	public function __construct()
 	{
 		if (isset($_GET["url"])) {
-			$this->init();	
+			$this->init();
 		} else{
-			require_once 'app/views/home/login/index.php';
+			header('Location: /estoque-de-moveis/home/');
 		}
 
 	}

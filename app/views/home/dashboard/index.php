@@ -1,10 +1,14 @@
 <?php
+	require_once 'app/helper/sessions.php';
+
 	$title = "Estoque de Móveis - Painel de Controle";
 	$footer = false;
-	require(HOME_PATH . "head.php");
+	require(VIEW_PATH . "/home/head.php");
 ?>
+	<i id="hamburguer" class="fa fa-bars fa-2x" aria-hidden="true"></i>
 	<div class="container">
 		<h2 class="text-center"> PRODUTOS </h2>
+		<a href="#"><i id="adicionar" class='fa fa-plus'></i></a>
 		<div class="padding">
 			<table id="table">
 				<thead>
@@ -14,30 +18,26 @@
 						<th>Nome</th>
 						<th>Preço</th>
 						<th>Quantidade</th>
+						<th>Ação</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td><input type="radio" name="select"></td>
-						<td>1</td>
-						<td>Produto 1</td>
-						<td>R$ 100</td>
-						<td>10</td>
-					</tr>
-					<tr>
-						<td><input type="radio" name="select"></td>
-						<td>2</td>
-						<td>Produto 2</td>
-						<td>R$ 200</td>
-						<td>20</td>
-					</tr>
-					<tr>
-						<td><input type="radio" name="select"></td>
-						<td>3</td>
-						<td>Produto 3</td>
-						<td>R$ 300</td>
-						<td>30</td>
-					</tr>
+					<?php foreach ($dados as $produto): ?>
+						<tr>
+						  <td><input type="radio" name="select"></td>
+						  <td><?php echo $produto->getCodigo(); ?></td>
+						  <td><?php echo $produto->getNome(); ?></td>
+						  <td><?php echo "R$ ".$produto->getPreco(); ?></td>
+						  <td><?php echo $produto->getQuantidade(); ?></td>
+							<td>
+								<a href="/estoque-de-moveis/produto/detalhes/<?php echo $produto->getCodigo(); ?>"><i class='fa fa-eye'></i></a>
+								&nbsp;
+								<a href="/estoque-de-moveis/produto/editar/<?php echo $produto->getCodigo(); ?>"><i class='fa fa-pencil'></i></a>
+								&nbsp;
+								<a href="/estoque-de-moveis/produto/remover/<?php echo $produto->getCodigo(); ?>"><i class='fa fa-trash-o'></i></a>
+							</td>
+						</tr>
+					<?php endforeach; ?>
 				</tbody>
 			</table>
 		</div>
@@ -46,56 +46,45 @@
 
 	<div class="slideout-sidebar">
 		<ul>
-			<li><i class="fa fa-eye"></i> Detalhes </li>
-			<li><i class="fa fa-pencil"></i> Editar </li>
-			<li><i class="fa fa-trash-o"></i> Remover </li>
+			<li><i class="fa fa-user"></i> <?php echo $user; ?></li>
+			<a href="/estoque-de-moveis/home/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
 		</ul>
 	</div>
 
+
+	<style media="screen">
+		a{
+			color:#bbb;
+		}
+		a:hover{
+			color:#2ecc71;
+		}
+		#logout{
+			float:right;
+			position:absolute;
+			top:0;
+			right:0;
+		}
+		#adicionar{
+			float: right;
+			color:#2ecc71;
+			font-size: 2em;
+		}
+		#hamburguer{
+			position: relative;
+			float: left;
+			margin-top: -150px;
+			cursor: pointer;
+		}
+	</style>
 	<script src="https://use.fontawesome.com/62b09b342d.js"></script>
+
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script>
-		var selectedRadio = null;
-		var lastSelectedRow = null;
-
-		$(window).on('load', function(){
-			$("tbody tr").hover(function() {
-				var rowRadio = $(":first-child > :first-child", this);
-
-				if (!rowRadio.is(':checked')){
-					$(this).toggleClass("tr-hover");
-				}
-		    });
-
-			$("tbody tr").click(function() {
-				var rowRadio = $(":first-child > :first-child", this);
-
-				if(!rowRadio.is(':checked')){
-					document.cookie = "produto=" + $(this).find('td:nth-child(2)').html();
-					console.log("Cookie adicionado/alterado: " + document.cookie);
-			        
-			        rowRadio.prop("checked", true);
-			        $("#menu-toggle").prop("checked", true);
-			        selectedRadio = rowRadio;
-			        
-			        if (lastSelectedRow){
-			        	lastSelectedRow.toggleClass("tr-hover");
-			        }
-			        lastSelectedRow = $(this);
-
-				} else if (rowRadio.is(':checked')) {
-					document.cookie = "produto=" + 0;
-					console.log("Cookie removido: " + document.cookie);
-
-			        rowRadio.prop("checked", false);
-			        $("#menu-toggle").prop("checked", false);
-			        selectedRadio = null;
-			        lastSelectedRow = null;
-				}
-		    });
+	<script type="text/javascript">
+		$("#hamburguer").click(function() {
+				$("#menu-toggle").prop("checked", !($("#menu-toggle").prop("checked")));
 		});
 	</script>
-
-<?php	
-	require(HOME_PATH . "footer.php");
+<?php
+	require(VIEW_PATH . "/home/footer.php");
 ?>
