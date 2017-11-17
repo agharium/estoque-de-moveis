@@ -24,4 +24,13 @@
       {
         echo "Remover Produto " . $produto_cod;
       }
+
+      public function cadastro()
+      {
+        $email = isset($_POST["usuario"])?$_POST["usuario"]:null;
+
+        echo $email;
+        // echo $_POST["senha"];
+        // echo $_POST["senhaConfirmacao"];
+      }
     }

@@ -5,9 +5,9 @@
 ?>
 	<div class="container half">
 		<h2 class="text-center"> CADASTRO </h2>
-		<form class="flex" method="POST" action="/estoque-de-moveis/home/logar">
+		<form class="flex" method="POST" action="/estoque-de-moveis/produto/cadastro">
 			<fieldset>
-				<label for="usuario">Usuário</label>
+				<label for="usuario">E-mail</label>
 				<input type="text" id="usuario" name="usuario" required>
 
 				<label for="senha">Senha</label>
