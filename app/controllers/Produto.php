@@ -1,13 +1,14 @@
 <?php
+    require_once 'Controller.php';
     /**
      *
      */
-    class Produto
+    class Produto extends Controller
     {
 
       public function detalhes($produto_cod='')
       {
-        echo "Detalhes do Produto " . $produto_cod;
+        $this->renderizar("/home/produto/detalhes");
       }
 
       public function adicionar()

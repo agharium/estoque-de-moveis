@@ -55,7 +55,7 @@ th, td {
 	text-align: center;
 }
 
-td:first-child, th:first-child {
+.hidden-cell {
 	display: none;
 }
 

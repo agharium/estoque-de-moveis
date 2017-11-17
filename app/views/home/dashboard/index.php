@@ -12,7 +12,7 @@
 			<table id="table">
 				<thead>
 					<tr>
-						<th></th>
+						<th class="hidden-cell"></th>
 						<th>ID</th>
 						<th>Nome</th>
 						<th>Preço</th>
@@ -23,7 +23,7 @@
 				<tbody>
 					<?php foreach ($dados as $produto): ?>
 						<tr>
-						  <td><input type="radio" name="select"></td>
+						  <td class="hidden-cell"><input type="radio" name="select"></td>
 						  <td><?php echo $produto->getCodigo(); ?></td>
 						  <td><?php echo $produto->getNome(); ?></td>
 						  <td><?php echo "R$ ".$produto->getPreco(); ?></td>
@@ -50,13 +50,6 @@
 		</ul>
 	</div>
 	<script src="https://use.fontawesome.com/62b09b342d.js"></script>
-
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script type="text/javascript">
-		/*$("#hamburguer").click(function() {
-				$("#menu-toggle").prop("checked", !($("#menu-toggle").prop("checked")));
-		});*/
-	</script>
 <?php
 	require(VIEW_PATH . "/home/footer.php");
 ?>
