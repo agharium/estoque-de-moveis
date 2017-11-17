@@ -5,10 +5,9 @@
 	$footer = false;
 	require(VIEW_PATH . "/home/head.php");
 ?>
-	<i id="hamburguer" class="fa fa-bars fa-2x" aria-hidden="true"></i>
 	<div class="container">
 		<h2 class="text-center"> PRODUTOS </h2>
-		<a href="#"><i id="adicionar" class='fa fa-plus'></i></a>
+		<a href="#"><i class="add" class='fa fa-plus'></i></a>
 		<div class="padding">
 			<table id="table">
 				<thead>
@@ -46,17 +45,17 @@
 
 	<div class="slideout-sidebar">
 		<ul>
-			<li><i class="fa fa-user"></i> <?php echo $user; ?></li>
-			<a href="/estoque-de-moveis/home/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+			<li class="menu-link"><i class="fa fa-user"></i> <?php echo $user; ?></li>
+			<li class="menu-link"><a href="/estoque-de-moveis/home/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout </a>
 		</ul>
 	</div>
 	<script src="https://use.fontawesome.com/62b09b342d.js"></script>
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script type="text/javascript">
-		$("#hamburguer").click(function() {
+		/*$("#hamburguer").click(function() {
 				$("#menu-toggle").prop("checked", !($("#menu-toggle").prop("checked")));
-		});
+		});*/
 	</script>
 <?php
 	require(VIEW_PATH . "/home/footer.php");

@@ -59,8 +59,8 @@ td:first-child, th:first-child {
 	display: none;
 }
 
-/* icones */
-a {
+/* links */
+.icone-visualizar, .icone-editar, .icone-remover {
 	color: #bbb;
 }
 
@@ -76,22 +76,16 @@ a {
 	color: #e74c3c;
 }
 
-#logout{
-	float: right;
-	position: absolute;
-	top: 0;
-	right: 0;
-}
-
-#adicionar{
+.add{
 	float: right;
 	color: #2ecc71;
 	font-size: 2em;
 }
 
-#hamburguer{
-	position: relative;
-	float: left;
-	margin-top: -150px;
-	cursor: pointer;
+.menu-link {
+	color: #eee;
+}
+
+.menu-link:hover {
+	color: #fff;
 }

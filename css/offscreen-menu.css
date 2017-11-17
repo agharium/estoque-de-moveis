@@ -59,6 +59,7 @@ body {
   font-size: 24px;
   z-index: 1;
   transition: all 300ms ease-in-out;
+  cursor: pointer;
 }
 
 /*-- The Magic --*/
