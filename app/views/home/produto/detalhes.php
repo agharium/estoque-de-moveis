@@ -6,10 +6,10 @@
 	require(VIEW_PATH . "/home/head.php");
 ?>
 <div class="container">
-	<h2 class="text-center"> NOME OU ID DO PRODUTO </h2>
-	<div style="display: flex; width: 60%; margin: 0 auto;">
+	<h2 class="text-center"> NOME OU ID DO PRODUTO AQUI </h2>
+	<div style="display: flex; width: 75%; margin: 0 auto; padding: 25px;">
 		<div style="justify-content: left; align-self: center;">
-			<img src="http://via.placeholder.com/250x250" >
+			<img src="http://via.placeholder.com/250x250">
 		</div>
 		<div style="justify-content: left; align-self: center; margin-left: 50px; width: 100%">
 			<table>
@@ -32,12 +32,6 @@
 			</table>
 		</div>
 	</div>
-	
-<style>
-td {
-	text-align: left;
-}
-</style>
 	
 </div>
 <?php
