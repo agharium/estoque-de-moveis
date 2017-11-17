@@ -76,16 +76,16 @@ td:first-child, th:first-child {
 	color: #e74c3c;
 }
 
-.add{
+.add {
 	float: right;
 	color: #2ecc71;
 	font-size: 2em;
 }
 
 .menu-link {
-	color: #eee;
+	color: #eee !important;
 }
 
 .menu-link:hover {
-	color: #fff;
+	color: #fff !important;
 }
