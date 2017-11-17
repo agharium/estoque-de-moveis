@@ -8,6 +8,9 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
+--CREATE DATABASE IF NOT EXISTS `estoque_empresa`;
+
+--USE DATABASE `estoque_empresa`;
 
 CREATE TABLE `gerente` (
   `gerente_codigo` int(11) NOT NULL,

@@ -30,11 +30,11 @@
 						  <td><?php echo "R$ ".$produto->getPreco(); ?></td>
 						  <td><?php echo $produto->getQuantidade(); ?></td>
 							<td>
-								<a href="/estoque-de-moveis/produto/detalhes/<?php echo $produto->getCodigo(); ?>"><i class='fa fa-eye'></i></a>
+								<a href="/estoque-de-moveis/produto/detalhes/<?php echo $produto->getCodigo(); ?>" class="icone-visualizar"><i class='fa fa-eye'></i></a>
 								&nbsp;
-								<a href="/estoque-de-moveis/produto/editar/<?php echo $produto->getCodigo(); ?>"><i class='fa fa-pencil'></i></a>
+								<a href="/estoque-de-moveis/produto/editar/<?php echo $produto->getCodigo(); ?>" class="icone-editar"><i class='fa fa-pencil'></i></a>
 								&nbsp;
-								<a href="/estoque-de-moveis/produto/remover/<?php echo $produto->getCodigo(); ?>"><i class='fa fa-trash-o'></i></a>
+								<a href="/estoque-de-moveis/produto/remover/<?php echo $produto->getCodigo(); ?>" class="icone-remover"><i class='fa fa-trash-o'></i></a>
 							</td>
 						</tr>
 					<?php endforeach; ?>
@@ -50,33 +50,6 @@
 			<a href="/estoque-de-moveis/home/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
 		</ul>
 	</div>
-
-
-	<style media="screen">
-		a{
-			color:#bbb;
-		}
-		a:hover{
-			color:#2ecc71;
-		}
-		#logout{
-			float:right;
-			position:absolute;
-			top:0;
-			right:0;
-		}
-		#adicionar{
-			float: right;
-			color:#2ecc71;
-			font-size: 2em;
-		}
-		#hamburguer{
-			position: relative;
-			float: left;
-			margin-top: -150px;
-			cursor: pointer;
-		}
-	</style>
 	<script src="https://use.fontawesome.com/62b09b342d.js"></script>
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
