@@ -9,7 +9,7 @@
 		<h2 class="text-center"> PRODUTOS </h2>
 		<a href="#"><i class="add" class='fa fa-plus'></i></a>
 		<div class="padding">
-			<table id="table">
+			<table class="produtos-table">
 				<thead>
 					<tr>
 						<th class="hidden-cell"></th>
