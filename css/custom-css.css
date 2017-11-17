@@ -51,16 +51,18 @@ footer {
 	cursor: pointer;
 }
 
-th, td {
+.produtos-table thead th, 
+.produtos-table tbody td {
 	text-align: center;
 }
 
-td:first-child, th:first-child {
+.produtos-table thead th:first-child, 
+.produtos-table tbody td:first-child {
 	display: none;
 }
 
-/* icones */
-a {
+/* links */
+.icone-visualizar, .icone-editar, .icone-remover {
 	color: #bbb;
 }
 
@@ -76,22 +78,16 @@ a {
 	color: #e74c3c;
 }
 
-#logout{
-	float: right;
-	position: absolute;
-	top: 0;
-	right: 0;
-}
-
-#adicionar{
+.add {
 	float: right;
 	color: #2ecc71;
 	font-size: 2em;
 }
 
-#hamburguer{
-	position: relative;
-	float: left;
-	margin-top: -150px;
-	cursor: pointer;
+.menu-link {
+	color: #eee !important;
+}
+
+.menu-link:hover {
+	color: #fff !important;
 }
