@@ -11,7 +11,7 @@
 		<div style="justify-content: left; align-self: center;">
 			<img src="http://via.placeholder.com/250x250">
 		</div>
-		<div style="justify-content: left; align-self: center; margin-left: 50px; width: 100%">
+		<div style="justify-content: right; align-self: center; margin-left: 50px; width: 100%">
 			<table>
 				<tr>
 					<td><b> ID </b></td>
