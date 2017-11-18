@@ -71,7 +71,7 @@
 			$stmt->bind_param("ss", $email, $senha);
 			$stmt->execute();
 			$stmt->bind_result($usuario_nome,$permissao_codigo);
-    	$stmt->store_result();
+    		$stmt->store_result();
 
 			if($stmt->num_rows == 1)  //To check if the row exists
         {
@@ -88,6 +88,27 @@
 			$conn->close();
 			return false;
 
+		}
+
+		public function cadastra($nome,$email,$senha)
+		{
+			$conn = Database::getConnection();
+
+			$sql = "INSERT INTO usuario (usuario_nome, usuario_email, usuario_senha,permissao_codigo)
+			VALUES (?,?,?,?)";
+			
+			$permissionDefault = 2; //vendedor
+
+			$stmt = $conn->prepare($sql);
+
+			$stmt->bind_param("sssi",$nome,$email,$senha,$permissionDefault);
+
+			if($stmt->execute()){
+				return true;
+			}
+
+			$conn->close();
+			return false;
 		}
 	}
 ?>

@@ -28,7 +28,7 @@ Class Home extends Controller {
 	public function logar()
 	{
 		$email = $_POST["usuario"];
-		$senha = $_POST["senha"];
+		$senha = md5($_POST["senha"]);
 
 		if(Usuario::login($email,$senha)){
 			if(isset($_SESSION["logado"])){
@@ -46,5 +46,22 @@ Class Home extends Controller {
 		}
 
 	}
+
+	public function cadastrar()
+      {
+        $nome = isset($_POST["nome"]) ? $_POST["nome"] : null;
+        $email = isset($_POST["usuario"]) ? $_POST["usuario"] : null;
+        $senha = isset($_POST["senha"]) ? $_POST["senha"] : null;
+        $senhaConfirmacao = isset($_POST["senhaConfirmacao"]) ? $_POST["senhaConfirmacao"] : null;
+
+        $passwordHashed = $senha === $senhaConfirmacao ? md5($senha) : null;
+        
+        if ( $nome && $email && $senha && $senhaConfirmacao && $passwordHashed ) {
+            if( Usuario::cadastra($nome,$email,$passwordHashed) ) {
+                header('Location: /estoque-de-moveis/home/');
+            }
+        }
+
+      }
 
 }

@@ -5,8 +5,11 @@
 ?>
 	<div class="container half">
 		<h2 class="text-center"> CADASTRO </h2>
-		<form class="flex" method="POST" action="/estoque-de-moveis/produto/cadastro">
+		<form class="flex" method="POST" action="/estoque-de-moveis/home/cadastrar">
 			<fieldset>
+				<label for="nome">Nome</label>
+				<input type="text" id="nome" name="nome" required>
+
 				<label for="usuario">E-mail</label>
 				<input type="text" id="usuario" name="usuario" required>
 
