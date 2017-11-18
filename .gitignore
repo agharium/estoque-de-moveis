@@ -1,3 +1,11 @@
 .htaccess
 
 app/.htaccess
+
+### Images ###
+# JPEG
+*.jpg
+*.jpeg
+*.gif
+*.png
+*.ico
