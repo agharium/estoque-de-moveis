@@ -9,8 +9,7 @@
 	<h2 class="text-center"> <?php echo $dados->getNome(); ?> </h2>
 	<div style="display: flex; width: 75%; margin: 0 auto; padding: 25px;">
 		<div style="justify-content: left; align-self: center;">
-			<img src="http://via.placeholder.com/250x250">
-			<!-- <img src="/estoque-de-moveis/img/phpGetImg()" style="width:250px;"> -->
+			<img src="/estoque-de-moveis/<?php echo $dados->getImg(); ?>" style="width:250px;">
 		</div>
 		<div style="justify-content: right; align-self: center; margin-left: 50px; width: 100%">
 			<table>
@@ -24,7 +23,7 @@
 				</tr>
 				<tr>
 					<td><b> Preço </b></td>
-					<td> <?php echo $dados->getPreco(); ?> </td>
+					<td> R$ <?php echo $dados->getPreco(); ?> </td>
 				</tr>
 				<tr>
 					<td><b> Quantidade </b></td>
