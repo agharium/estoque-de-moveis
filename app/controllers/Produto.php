@@ -33,7 +33,9 @@
 
       public function remover($produto_cod='')
       {
-        
+        if ( ProdutoModel::deletarProdutoById($produto_cod) ) {
+          header('Location: /estoque-de-moveis/home/');
+        }
       }
 
     }

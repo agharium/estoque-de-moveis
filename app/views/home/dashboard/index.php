@@ -33,7 +33,7 @@
 								&nbsp;
 								<a href="/estoque-de-moveis/produto/editar/<?php echo $produto->getCodigo(); ?>" class="icone-editar"><i class='fa fa-pencil'></i></a>
 								&nbsp;
-								<a href="/estoque-de-moveis/produto/remover/<?php echo $produto->getCodigo(); ?>" class="icone-remover"><i class='fa fa-trash-o'></i></a>
+								<a onclick="confirmDialog(<?php echo $produto->getCodigo(); ?>)" style="cursor:pointer" class="icone-remover"><i class='fa fa-trash-o'></i></a>
 							</td>
 						</tr>
 					<?php endforeach; ?>
@@ -49,6 +49,13 @@
 			<li class="menu-link"><a href="/estoque-de-moveis/home/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout </a>
 		</ul>
 	</div>
+	<script type="text/javascript">
+		function confirmDialog(codigo) {
+			if ( confirm("Voce deseja realmente apagar?") ) {
+				location.href = "/estoque-de-moveis/produto/remover/" + codigo;
+			}
+		}
+	</script>
 	<script src="https://use.fontawesome.com/62b09b342d.js"></script>
 <?php
 	require(VIEW_PATH . "/home/footer.php");

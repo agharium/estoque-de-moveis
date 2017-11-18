@@ -58,6 +58,21 @@
             return $this->quantidade;
         }
 
+        public function deletarProdutoById($id)
+        {
+          $ok = false;
+          $conn = Database::getConnection();
+
+          $stmt = $conn->prepare("DELETE FROM produto WHERE produto_codigo = ?");
+          $stmt->bind_param('i',intval($id));
+          if($stmt->execute()){
+            $ok = true;
+          }
+
+          $stmt->close();
+          return $ok;
+        }
+
         public function getProdutoById($id)
         {
           $conn = Database::getConnection();
