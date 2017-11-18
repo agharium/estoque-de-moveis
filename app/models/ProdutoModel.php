@@ -2,7 +2,7 @@
     require_once("Database.php");
     require_once("Usuario.php");
 
-    class Produto{
+    class ProdutoModel {
         private $codigo;
         private $nome;
         private $descricao;
@@ -58,6 +58,38 @@
             return $this->quantidade;
         }
 
+        public function getProdutoById($id)
+        {
+          $conn = Database::getConnection();
+
+          $stmt = $conn->prepare("SELECT * FROM produto WHERE produto_codigo = ? LIMIT 1");
+          $stmt->bind_param("i",intval($id));
+          $stmt->execute();
+    			$stmt->bind_result($codigo,$nome,$descricao,$img,$preco,$quantidade);
+        	$stmt->store_result();
+
+          $produto = null;
+
+          if ( $stmt->num_rows == 1 ){
+
+            while ($result = $stmt->fetch() ) {
+              $produto = new ProdutoModel();
+              $produto->setCodigo($codigo);
+              $produto->setNome($nome);
+              $produto->setDescricao($descricao);
+              $produto->setImg($img);
+              $produto->setPreco($preco);
+              $produto->setQuantidade($quantidade);
+            }
+
+          }
+          $stmt->close();
+          $conn->close();
+
+          return $produto;
+
+        }
+
         public function getProdutos() {
           $conn = Database::getConnection();
 
@@ -69,7 +101,7 @@
               // output data of each row
               while($row = $result->fetch_assoc()) {
 
-                  $produto = new Produto();
+                  $produto = new ProdutoModel();
                   $produto->setCodigo($row["produto_codigo"]);
                   $produto->setNome($row["produto_nome"]);
                   $produto->setDescricao($row["produto_descricao"]);

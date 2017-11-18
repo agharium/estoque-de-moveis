@@ -2,13 +2,13 @@
 
 require_once 'Controller.php';
 require_once 'app/models/Usuario.php';
-require_once 'app/models/Produto.php';
+require_once 'app/models/ProdutoModel.php';
 
 Class Home extends Controller {
 
 	public function index() {
 		if(isset($_SESSION['logado'])){
-	     $this->renderizar('/home/dashboard/index',Produto::getProdutos());
+	     $this->renderizar('/home/dashboard/index',ProdutoModel::getProdutos());
 	  }else{
 			 $this->renderizar('/home/login/index');
 		}
@@ -55,7 +55,7 @@ Class Home extends Controller {
         $senhaConfirmacao = isset($_POST["senhaConfirmacao"]) ? $_POST["senhaConfirmacao"] : null;
 
         $passwordHashed = $senha === $senhaConfirmacao ? md5($senha) : null;
-        
+
         if ( $nome && $email && $senha && $senhaConfirmacao && $passwordHashed ) {
             if( Usuario::cadastra($nome,$email,$passwordHashed) ) {
                 header('Location: /estoque-de-moveis/home/');

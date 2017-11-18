@@ -6,7 +6,7 @@
 	require(VIEW_PATH . "/home/head.php");
 ?>
 <div class="container">
-	<h2 class="text-center"> NOME OU ID DO PRODUTO AQUI </h2>
+	<h2 class="text-center"> <?php echo $dados->getNome(); ?> </h2>
 	<div style="display: flex; width: 75%; margin: 0 auto; padding: 25px;">
 		<div style="justify-content: left; align-self: center;">
 			<img src="http://via.placeholder.com/250x250">
@@ -17,7 +17,7 @@
 					<b> ID </b>
 				</div>
 				<div style="width: 100%; margin-left: 10px; ">
-					<input style="margin-bottom: 0px; width: 385px; float: right;" type="text" placeholder="yay" />				
+					<input style="margin-bottom: 0px; width: 385px; float: right;" type="text" placeholder="<?php echo $dados->getCodigo(); ?>" />
 				</div>
 			</div>
 
@@ -26,7 +26,7 @@
 					<b> Nome </b>
 				</div>
 				<div style="width: 100%; margin-left: 10px; ">
-					<input style="margin-bottom: 0px; width: 385px; float: right;" type="text" placeholder="yay" />				
+					<input style="margin-bottom: 0px; width: 385px; float: right;" type="text" placeholder="<?php echo $dados->getNome(); ?>" />
 				</div>
 			</div>
 
@@ -35,7 +35,7 @@
 					<b> Preço </b>
 				</div>
 				<div style="width: 100%; margin-left: 10px; ">
-					<input style="margin-bottom: 0px; width: 385px; float: right;" type="text" placeholder="yay" />				
+					<input style="margin-bottom: 0px; width: 385px; float: right;" type="text" placeholder="<?php echo $dados->getPreco(); ?>" />
 				</div>
 			</div>
 
@@ -44,13 +44,13 @@
 					<b> Quantidade </b>
 				</div>
 				<div style="width: 100%; margin-left: 10px; ">
-					<input style="margin-bottom: 0px; width: 385px; float: right;" type="number" placeholder="400" />				
+					<input style="margin-bottom: 0px; width: 385px; float: right;" type="number" placeholder="<?php echo $dados->getQuantidade(); ?>" />
 				</div>
-			</div>				
+			</div>
 		</div>
 	</div>
 	<button> SALVAR </button>
-	
+
 </div>
 <?php
 	require(VIEW_PATH . "/home/footer.php");
