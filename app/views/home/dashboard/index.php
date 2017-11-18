@@ -46,6 +46,7 @@
 	<div class="slideout-sidebar">
 		<ul>
 			<li class="menu-link"><i class="fa fa-user"></i> <?php echo $user; ?></li>
+			<li class="menu-link"><a href="/estoque-de-moveis/produto/adicionar"><i class="fa fa-plus"></i> Adicionar </a>
 			<li class="menu-link"><a href="/estoque-de-moveis/home/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout </a>
 		</ul>
 	</div>

@@ -22,7 +22,41 @@
 
       public function adicionar()
       {
-        echo "Adicionar Produto.";
+        $this->renderizar('/home/produto/adicionar');
+      }
+
+      public function insert()
+      {
+        $nomeProduto = isset($_POST["nome"]) ? $_POST["nome"] : null;
+        $descricaoProduto = $_POST["descricao"];
+        $precoProduto = isset($_POST["preco"]) ? $_POST["preco"] : null;
+        $quantidadeProduto = isset($_POST["quantidade"]) ? $_POST["quantidade"] : null;
+        $imagemProduto = '';
+
+        if ( $nomeProduto && $precoProduto && $quantidadeProduto ){
+            if($_FILES['imagemUpdate']['name'] != "" || $_FILES['imagemUpdate']['size'] != 0){
+              include 'app/helper/imageUpload.php';
+
+              if ($uploadOk == 1) { //$uploadok vem do include acima
+
+                if (move_uploaded_file($_FILES["imagemUpdate"]["tmp_name"], $target_file)) {
+                    $imagemProduto = $target_file;
+                }
+              }
+            }
+
+        $produto = new ProdutoModel();
+        $produto->setNome($nomeProduto);
+        $produto->setDescricao($descricaoProduto);
+        $produto->setImg($imagemProduto);
+        $produto->setPreco($precoProduto);
+        $produto->setQuantidade($quantidadeProduto);
+
+        if ( ProdutoModel::insertProduto($produto) ) {
+          header('Location: /estoque-de-moveis/home/');
+        }
+
+        }
       }
 
       public function editar($produto_cod='')

@@ -58,41 +58,39 @@
             return $this->quantidade;
         }
 
-        public function updateProduto($produto)
+        ################## CRUD ##################
+
+        public function insertProduto($produto)
         {
           $ok = false;
           $conn = Database::getConnection();
 
-          $stmt = $conn->prepare("UPDATE produto SET
-                                        produto_nome = ?,
-                                        produto_descricao = ?,
-                                        produto_img = ?,
-                                        produto_preco = ?,
-                                        produto_quantidade = ?
-                                        WHERE produto_codigo = ?"
-                                );
-          $stmt->bind_param('sssdii',$produto->getNome(),$produto->getDescricao(),$produto->getImg(),
-                                    $produto->getPreco(),$produto->getQuantidade(),$produto->getCodigo());
+          $stmt = $conn->prepare(
+                                "INSERT INTO
+                                      produto
+                                   (produto_nome,
+                                   produto_descricao,
+                                   produto_img,
+                                   produto_preco,
+                                   produto_quantidade)
+                                VALUES
+                                   (?,?,?,?,?)"
+                                 );
+
+          $stmt->bind_param(
+                            'sssdi',
+                            $produto->getNome(),
+                            $produto->getDescricao(),
+                            $produto->getImg(),
+                            $produto->getPreco(),
+                            $produto->getQuantidade()
+                            );
           if($stmt->execute()){
             $ok = true;
           }
 
           $stmt->close();
-          return $ok;
-        }
-
-        public function deletarProdutoById($id)
-        {
-          $ok = false;
-          $conn = Database::getConnection();
-
-          $stmt = $conn->prepare("DELETE FROM produto WHERE produto_codigo = ?");
-          $stmt->bind_param('i',intval($id));
-          if($stmt->execute()){
-            $ok = true;
-          }
-
-          $stmt->close();
+          $conn->close();
           return $ok;
         }
 
@@ -157,5 +155,61 @@
           $conn->close();
           return null;
         }
+
+
+        public function updateProduto($produto)
+        {
+          $ok = false;
+          $conn = Database::getConnection();
+
+          $stmt = $conn->prepare(
+                                "UPDATE
+                                        produto
+                                 SET
+                                        produto_nome = ?,
+                                        produto_descricao = ?,
+                                        produto_img = ?,
+                                        produto_preco = ?,
+                                        produto_quantidade = ?
+                                 WHERE
+                                        produto_codigo = ?"
+                                );
+          $stmt->bind_param(
+                            'sssdii',
+                            $produto->getNome(),
+                            $produto->getDescricao(),
+                            $produto->getImg(),
+                            $produto->getPreco(),
+                            $produto->getQuantidade(),
+                            $produto->getCodigo()
+                            );
+
+          if($stmt->execute()){
+            $ok = true;
+          }
+
+          $stmt->close();
+          $conn->close();
+          return $ok;
+        }
+
+
+        public function deletarProdutoById($id)
+        {
+          $ok = false;
+          $conn = Database::getConnection();
+
+          $stmt = $conn->prepare("DELETE FROM produto WHERE produto_codigo = ?");
+          $stmt->bind_param('i',intval($id));
+          if($stmt->execute()){
+            $ok = true;
+          }
+
+          $stmt->close();
+          $conn->close();
+          return $ok;
+        }
+
+        # FIM CRUD #
     }
 ?>
