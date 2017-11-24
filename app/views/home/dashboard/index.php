@@ -51,6 +51,7 @@
 				</tbody>
 			</table>
 		</div>
+		<?php require_once("app/helper/pagination.php"); ?>
 	</div>
 	</div>
 
