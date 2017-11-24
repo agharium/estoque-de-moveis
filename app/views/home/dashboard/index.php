@@ -30,15 +30,15 @@
 						  <td><?php echo "R$ ".$produto->getPreco(); ?></td>
 						  <td><?php echo $produto->getQuantidade(); ?></td>
 							<td>
-								<a href="/estoque-de-moveis/produto/registro/<?php echo $produto->getCodigo().'-'.$produto->getQuantidade(); ?>-entrada" class="icone-entrada">
-									<i style="cursor: pointer" title="Registrar entrada" class="fa fa-sign-in"></i>
+								<a href="/estoque-de-moveis/produto/registro/<?php echo $produto->getCodigo().'-'.$produto->getQuantidade(); ?>-entrada" class="icone-entrada" title="Registrar entrada">
+									<i class="fa fa-sign-in"></i>
 								</a>
 								&nbsp;
-								<a href="/estoque-de-moveis/produto/registro/<?php echo $produto->getCodigo().'-'.$produto->getQuantidade(); ?>-saida" class="icone-saida">
-									<i style="cursor: pointer" title="Registrar saída" class="fa fa-sign-out"></i>
+								<a href="/estoque-de-moveis/produto/registro/<?php echo $produto->getCodigo().'-'.$produto->getQuantidade(); ?>-saida" class="icone-saida" title="Registrar saída">
+									<i class="fa fa-sign-out"></i>
 								</a>
 								&nbsp;
-								<?php if ($pm==2): ?>
+							<?php if ($pm==2): ?>
 								<a href="/estoque-de-moveis/produto/detalhes/<?php echo PseudoCrypt::hash($produto->getCodigo()); ?>" class="icone-visualizar" title="Visualizar"><i class='fa fa-eye'></i></a>
 								&nbsp;
 								<a href="/estoque-de-moveis/produto/editar/<?php echo PseudoCrypt::hash($produto->getCodigo()); ?>" class="icone-editar" title="Editar"><i class='fa fa-pencil'></i></a>
