@@ -67,23 +67,23 @@ footer {
 }
 
 .icone-entrada:hover {
-	color: #27ae60;
+	color: #27ae60 !important;
 }
 
 .icon-saida:hover {
-	color: #f39c12;
+	color: #f39c12 !important;
 }
 
 .icone-visualizar:hover{
-	color: #3498db;
+	color: #3498db !important;
 }
 
 .icone-editar:hover{
-	color: #8e44ad;
+	color: #8e44ad !important;
 }
 
 .icone-remover:hover {
-	color: #e74c3c;
+	color: #e74c3c !important;
 }
 
 .add {
@@ -93,11 +93,11 @@ footer {
 }
 
 .menu-link {
-	color: #ccc;
+	color: #ccc !important;
 }
 
 .menu-link:hover {
-	color: #fff;
+	color: #fff !important;
 }
 
 /* milligram override */
