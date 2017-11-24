@@ -75,7 +75,7 @@
 						<a href="/estoque-de-moveis/home/cadastro">Contas</a>
 					</div>
 				<?php endif; ?>
-			<li class="menu-link"><a href="/estoque-de-moveis/home/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout </a>
+			<li class="menu-link"><a href="/estoque-de-moveis/home/logout" class="menu-link"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout </a>
 		</ul>
 	</div>
 

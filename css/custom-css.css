@@ -63,27 +63,27 @@ footer {
 
 /* links */
 .icone-entrada, .icone-saida, .icone-visualizar, .icone-editar, .icone-remover {
-	color: #bbb !important;
+	color: #bbb;
 }
 
 .icone-entrada:hover {
-	color: #27ae60 !important;
+	color: #27ae60;
 }
 
 .icon-saida:hover {
-	color: #f39c12 !important;
+	color: #f39c12;
 }
 
 .icone-visualizar:hover{
-	color: #3498db !important;
+	color: #3498db;
 }
 
 .icone-editar:hover{
-	color: #16a085 !important;
+	color: #16a085;
 }
 
 .icone-remover:hover {
-	color: #e74c3c !important;
+	color: #e74c3c;
 }
 
 .add {
@@ -97,11 +97,7 @@ footer {
 }
 
 .menu-link:hover {
-	color: #fff !important;
+	color: #2980b9 !important;
 }
 
 /* milligram override */
-
-a {
-	color: #3498db !important;
-}
