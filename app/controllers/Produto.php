@@ -134,9 +134,12 @@
             echo "ocorreu um erro. <a href='/estoque-de-moveis/home/'> Voltar </a>";
           }
 
+        }
 
 
-
+        public function getEstoqueCount()
+        {
+          return count(ProdutoModel::getProdutos());
         }
 
 }
