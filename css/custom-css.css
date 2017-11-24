@@ -93,11 +93,11 @@ footer {
 }
 
 .menu-link {
-	color: #eee !important;
+	color: #eee;
 }
 
 .menu-link:hover {
-	color: #2980b9 !important;
+	color: #2980b9;
 }
 
 /* milligram override */
