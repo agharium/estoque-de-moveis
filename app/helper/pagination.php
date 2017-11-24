@@ -1,5 +1,5 @@
 <?php
-	require_once("app/models/Produto.php");
+	require_once("app/controllers/Produto.php");
 
 	$produtosPorPagina = 10;
 	$estoqueCount = Produto::getEstoqueCount();
