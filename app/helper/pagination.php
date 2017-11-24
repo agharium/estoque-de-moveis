@@ -7,7 +7,7 @@
 	if ($estoqueCount >= 0){
 		$qtdPaginas = intval(ceil($estoqueCount / $produtosPorPagina));
 
-		for ($i=1; $i<=$qtdPaginas; $i+1) { 
+		for ($i=1; $i<=$qtdPaginas; $i++) { 
 			echo "<a href=''>" . $i . "</a>";
 		}
 	}
