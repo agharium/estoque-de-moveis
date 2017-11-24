@@ -58,24 +58,24 @@
 	<!-- Menu Drawer -->
 	<div class="slideout-sidebar">
 		<ul>
-			<li class="menu-link">
+			<li style="color: white; cursor: default">
 				<i class="fa fa-user"></i>
 				<?php echo $pm==2?"Gerente:" : "Vendedor:"; ?>
 				<br>
 				<?php echo $user; ?>
 			</li>
 			<?php if ($pm==2): ?>
-				<li class="menu-link">
-					<span class="accordion">
+				<li>
+					<span class="accordion menu-link">
 						<i class="fa fa-plus"></i>
 						Cadastrar
 					</span>
 					<div class="panel" style="display: none;padding-left: 10px;padding-top: 10px;">
-						<a href="/estoque-de-moveis/produto/adicionar">Produtos</a><br>
-						<a href="/estoque-de-moveis/home/cadastro">Contas</a>
+						<a href="/estoque-de-moveis/produto/adicionar" class="menu-link">Produtos</a><br>
+						<a href="/estoque-de-moveis/home/cadastro" class="menu-link">Contas</a>
 					</div>
 				<?php endif; ?>
-			<li class="menu-link"><a href="/estoque-de-moveis/home/logout" class="menu-link"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout </a>
+			<li><a href="/estoque-de-moveis/home/logout" class="menu-link"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout </a>
 		</ul>
 	</div>
 

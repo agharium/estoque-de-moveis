@@ -79,7 +79,7 @@ footer {
 }
 
 .icone-editar:hover{
-	color: #16a085;
+	color: #8e44ad;
 }
 
 .icone-remover:hover {
@@ -93,11 +93,11 @@ footer {
 }
 
 .menu-link {
-	color: #eee;
+	color: #ccc;
 }
 
 .menu-link:hover {
-	color: #2980b9;
+	color: #fff;
 }
 
 /* milligram override */
