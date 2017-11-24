@@ -142,4 +142,10 @@
           return count(ProdutoModel::getProdutos());
         }
 
+        public function gerarInserts($value='')
+        {
+          $qtd = $value != '' ? $value : 100;
+          include 'app/helper/factory.php';
+        }
+
 }
