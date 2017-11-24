@@ -67,23 +67,23 @@ footer {
 }
 
 .icone-entrada:hover {
-	color: #27ae60;
+	color: #27ae60 !important;
 }
 
 .icon-saida:hover {
-	color: #f39c12;
+	color: #f39c12 !important;
 }
 
 .icone-visualizar:hover{
-	color: #3498db;
+	color: #3498db !important;
 }
 
 .icone-editar:hover{
-	color: #16a085;
+	color: #16a085 !important;
 }
 
 .icone-remover:hover {
-	color: #e74c3c;
+	color: #e74c3c !important;
 }
 
 .add {
