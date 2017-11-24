@@ -63,7 +63,7 @@ footer {
 
 /* links */
 .icone-entrada, .icone-saida, .icone-visualizar, .icone-editar, .icone-remover {
-	color: #bbb;
+	color: #bbb !important;
 }
 
 .icone-entrada:hover {
