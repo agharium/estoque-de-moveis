@@ -126,11 +126,11 @@
 
         }
 
-        public function getProdutos($apenasEstoque=true) {
+        public function getProdutos($pagination=false, $num=0) {
           $conn = Database::getConnection();
 
           $sql = "SELECT * FROM produto ";
-          if($apenasEstoque) $sql.= "WHERE produto_quantidade > 0";
+          if($pagination) $sql.= "LIMIT $num, 10";
 
           $result = $conn->query($sql);
 

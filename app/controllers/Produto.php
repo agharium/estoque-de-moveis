@@ -9,7 +9,7 @@
       public function index()
       {
         if( isset($_SESSION['logado']) ){
-    	     $this->renderizar('/home/dashboard/index',ProdutoModel::getProdutos());
+    	     $this->renderizar('/home/dashboard/index',ProdutoModel::getProdutos(true));
     	  }else{
     			 $this->renderizar('/home/login/index');
     		}
@@ -136,6 +136,12 @@
 
         }
 
+
+        public function page($num='')
+        {
+          $this->renderizar('/home/dashboard/index',ProdutoModel::getProdutos(true, ($num - 1) * 10 ));
+          // echo $num / $;
+        }
 
         public function getEstoqueCount()
         {

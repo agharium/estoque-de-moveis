@@ -8,7 +8,7 @@ Class Home extends Controller {
 
 	public function index() {
 		if(isset($_SESSION['logado'])){
-	     $this->renderizar('/home/dashboard/index',ProdutoModel::getProdutos());
+	     $this->renderizar('/home/dashboard/index',ProdutoModel::getProdutos(true));
 	  }else{
 			 $this->renderizar('/home/login/index');
 		}
