@@ -63,50 +63,51 @@
 		public function login($email, $senha)
 		{
 			$conn = Database::getConnection();
-			$usuario_nome='';
-			$permissao_codigo='';
+			$success = false;
 
-			$stmt = $conn->prepare("SELECT usuario_nome,permissao_codigo
-				 										from usuario WHERE usuario_email = ? AND usuario_senha = ? LIMIT 1");
-			$stmt->bind_param("ss", $email, $senha);
+			$stmt = $conn->prepare("SELECT usuario_nome,usuario_senha,permissao_codigo
+				 										from usuario WHERE usuario_email = ? LIMIT 1");
+			$stmt->bind_param("s", $email);
 			$stmt->execute();
-			$stmt->bind_result($usuario_nome,$permissao_codigo);
+			$stmt->bind_result($usuario_nome,$usuario_senha,$permissao_codigo);
     	$stmt->store_result();
 
-			if($stmt->num_rows == 1)  //To check if the row exists
-        {
-            while($stmt->fetch()) //fetching the contents of the row
-						{
-							$_SESSION['logado'] = true;
-              $_SESSION['permission'] = $permissao_codigo;
-              $_SESSION['user'] = $usuario_nome;
-            }
+			if($stmt->num_rows == 1) {
+        while($stmt->fetch()) {
 
-						$stmt->close();
-						return true;
-        }
+					if ( password_verify($senha, $usuario_senha) ) {
+						$_SESSION['logado'] = true;
+						$_SESSION['permission'] = $permissao_codigo;
+						$_SESSION['user'] = $usuario_nome;
+
+						$success = true;
+					}//fim if password verify
+
+        } //fim while
+      }//fim if num rows
+
+			$stmt->close();
 			$conn->close();
-			return false;
+			return $success;
 
 		}
 
-		public function cadastra($nome,$email,$senha)
+		public function cadastra($nome,$email,$senha,$permissao)
 		{
 			$conn = Database::getConnection();
 
 			$sql = "INSERT INTO usuario (usuario_nome, usuario_email, usuario_senha,permissao_codigo)
 			VALUES (?,?,?,?)";
 
-			$permissionDefault = 2; //vendedor
-
 			$stmt = $conn->prepare($sql);
 
-			$stmt->bind_param("sssi",$nome,$email,$senha,$permissionDefault);
+			$stmt->bind_param("sssi",$nome,$email,$senha,$permissao);
 
 			if($stmt->execute()){
 				return true;
 			}
 
+			$stmt->close();
 			$conn->close();
 			return false;
 		}

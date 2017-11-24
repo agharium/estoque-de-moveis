@@ -126,10 +126,12 @@
 
         }
 
-        public function getProdutos() {
+        public function getProdutos($apenasEstoque=true) {
           $conn = Database::getConnection();
 
-          $sql = "SELECT * FROM produto";
+          $sql = "SELECT * FROM produto ";
+          if($apenasEstoque) $sql.= "WHERE produto_quantidade > 0";
+
           $result = $conn->query($sql);
 
           if ($result->num_rows > 0) {
@@ -211,5 +213,55 @@
         }
 
         # FIM CRUD #
+
+
+
+        ##################### ENTRADAS E SAIDAS DE PRODUTOS #####################
+
+        public function registraEntradaSaida( $codigo, $tipo, $data, $qtd )
+        {
+          $ok = false;
+          $conn = Database::getConnection();
+
+          $conn->autocommit(FALSE);
+
+          try {
+            $stmt = $conn->prepare("INSERT INTO produto_". $tipo ."
+                                  (produto_codigo, produto_" .$tipo. "_data,produto_" .$tipo. "_quantidade)
+                                  VALUES (?,?,?) ");
+
+            $stmt->bind_param( "isi", $codigo,$data,$qtd );
+
+            if ( $stmt->execute() ) {
+
+                  $operacao = $tipo == "entrada" ? "+" : "-";
+
+                  $stmt = $conn->prepare("UPDATE produto SET produto_quantidade = produto_quantidade ".$operacao." ? WHERE produto_codigo = ? ");
+
+                  $stmt->bind_param( "ii", $qtd,$codigo );
+
+                  if ( $stmt->execute() ) {
+                    $ok = true;
+                  }
+
+            }
+          } catch (Exception $e) {
+            $conn->rollback();
+            echo mysqli_error($conn);
+            $ok = false;
+          }
+          $conn->commit();
+
+          $stmt->close();
+          $conn->close();
+
+          return $ok;
+
+        }
+
+
+
+
+
     }
 ?>

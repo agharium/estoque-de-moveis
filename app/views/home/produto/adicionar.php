@@ -6,7 +6,7 @@
 	require(VIEW_PATH . "/home/head.php");
 ?>
 <div class="container">
-	<h2 class="text-center"> Adicionar Produto ao Estoque </h2>
+	<h2 class="text-center"> Adicionar Produto </h2>
 
 	<form action="/estoque-de-moveis/produto/insert" method="post" enctype="multipart/form-data">
 
@@ -17,10 +17,10 @@
 		<div style="justify-content: right; align-self: center; margin-left: 50px; width: 100%">
 			<div style="display: flex; margin-bottom: 15px;">
 				<div style="justify-content: left; align-self: center;">
-					<b> Nome </b>
+					<b> Nome&nbsp;<span style="color:red">*</span> </b>
 				</div>
 				<div style="width: 100%; margin-left: 10px; ">
-					<input style="margin-bottom: 0px; width: 385px; float: right;" type="text" name="nome" />
+					<input style="margin-bottom: 0px; width: 385px; float: right;" type="text" name="nome" required />
 				</div>
 			</div>
 
@@ -35,10 +35,10 @@
 
 			<div style="display: flex; margin-bottom: 15px;">
 				<div style="justify-content: left; align-self: center;">
-					<b> Preço </b>
+					<b> Preço&nbsp;<span style="color:red">*</span> </b>
 				</div>
 				<div style="width: 100%; margin-left: 10px; ">
-					<input style="margin-bottom: 0px; width: 385px; float: right;" type=number step=0.5 name="preco" />
+					<input style="margin-bottom: 0px; width: 385px; float: right;" type="number" step="0.01" name="preco" required />
 				</div>
 			</div>
 
@@ -47,7 +47,7 @@
 					<b> Quantidade </b>
 				</div>
 				<div style="width: 100%; margin-left: 10px; ">
-					<input style="margin-bottom: 0px; width: 385px; float: right;" type="number" name="quantidade" />
+					<input style="margin-bottom: 0px; width: 385px; float: right;" type="number" name="quantidade" min="0" value="0" />
 				</div>
 			</div>
 

@@ -1,5 +1,6 @@
 <?php
     require_once 'Controller.php';
+    require_once 'app/helper/PseudoCrypt.php';
     require_once 'app/models/ProdutoModel.php';
 
     class Produto extends Controller
@@ -16,8 +17,7 @@
 
       public function detalhes($produto_cod='')
       {
-        $this->renderizar("/home/produto/detalhes",ProdutoModel::getProdutoById($produto_cod));
-        //echo "Detalhes Produto " . $produto_cod;
+        $this->renderizar("/home/produto/detalhes",ProdutoModel::getProdutoById(PseudoCrypt::unhash($produto_cod)));
       }
 
       public function adicionar()
@@ -25,24 +25,43 @@
         $this->renderizar('/home/produto/adicionar');
       }
 
+      public function editar($produto_cod='')
+      {
+        $this->renderizar("/home/produto/editar",ProdutoModel::getProdutoById(PseudoCrypt::unhash($produto_cod)));
+      }
+
+      public function remover($produto_cod='')
+      {
+        if ( ProdutoModel::deletarProdutoById($produto_cod) ) {
+          header('Location: /estoque-de-moveis/home/');
+        }
+
+      }
+
+      public function registro($urlInfo='')
+      {
+        $registro = explode('-',$urlInfo);
+
+        if( $registro[2] == "entrada" || $registro[2] == "saida" ){
+          $this->renderizar('/home/produto/registro',$registro);
+        }
+        else {
+          header('Location: /estoque-de-moveis/home/');
+        }
+      }
+
       public function insert()
       {
         $nomeProduto = isset($_POST["nome"]) ? $_POST["nome"] : null;
         $descricaoProduto = $_POST["descricao"];
-        $precoProduto = isset($_POST["preco"]) ? $_POST["preco"] : null;
-        $quantidadeProduto = isset($_POST["quantidade"]) ? $_POST["quantidade"] : null;
+        $precoProduto = isset($_POST["preco"]) ? floatval($_POST["preco"]) : null;
+        $quantidadeProduto = isset($_POST["quantidade"]) ? intval($_POST["quantidade"]) : null;
         $imagemProduto = '';
 
-        if ( $nomeProduto && $precoProduto && $quantidadeProduto ){
+
+        if ( $nomeProduto && $precoProduto ){
             if($_FILES['imagemUpdate']['name'] != "" || $_FILES['imagemUpdate']['size'] != 0){
               include 'app/helper/imageUpload.php';
-
-              if ($uploadOk == 1) { //$uploadok vem do include acima
-
-                if (move_uploaded_file($_FILES["imagemUpdate"]["tmp_name"], $target_file)) {
-                    $imagemProduto = $target_file;
-                }
-              }
             }
 
         $produto = new ProdutoModel();
@@ -59,12 +78,6 @@
         }
       }
 
-      public function editar($produto_cod='')
-      {
-        $this->renderizar("/home/produto/editar",ProdutoModel::getProdutoById($produto_cod));
-        //echo "Editar Produto " . $produto_cod;
-      }
-
       public function update()
       {
         $codigoProduto = isset($_POST["codigoProduto"]) ? intval($_POST["codigoProduto"]) : null;
@@ -77,14 +90,6 @@
         if ( $codigoProduto && $nomeProduto && $precoProduto && $quantidadeProduto ) {
           if($_FILES['imagemUpdate']['name'] != "" || $_FILES['imagemUpdate']['size'] != 0){
               include 'app/helper/imageUpload.php';
-
-              if ($uploadOk == 1) { //$uploadok vem do include acima
-
-                if (move_uploaded_file($_FILES["imagemUpdate"]["tmp_name"], $target_file)) {
-                    $imagemProduto = $target_file;
-                }
-
-              }
           }
 
           $produto = new ProdutoModel();
@@ -98,15 +103,40 @@
           if ( ProdutoModel::updateProduto($produto) )
             header('Location: /estoque-de-moveis/home/');
 
-        }
-
+          }
       }
 
-      public function remover($produto_cod='')
-      {
-        if ( ProdutoModel::deletarProdutoById($produto_cod) ) {
-          header('Location: /estoque-de-moveis/home/');
-        }
-      }
+        public function registrar()
+        {
+          $tipo = isset($_POST["tipoRegistro"]) ? $_POST["tipoRegistro"] : null;
+          $codigo = isset($_POST["codigoRegistro"]) ? intval($_POST["codigoRegistro"]) : null;
+          $qtdAtual = isset($_POST["qtdAtual"]) ? intval($_POST["qtdAtual"]) : null;
 
-    }
+          $data = '';
+          if (!empty($_POST["dataRegistro"])) {
+            $data = $_POST["dataRegistro"];
+          } else {
+            $data = date('Y-m-d H:i:s');
+          }
+
+          $qtdRegistro = null;
+          if (isset($_POST["quantidadeRegistro"]) && $_POST["quantidadeRegistro"] > 0 && $_POST["quantidadeRegistro"] <= $qtdAtual) {
+              $qtdRegistro = $_POST["quantidadeRegistro"];
+          }
+
+          if ( $tipo && $codigo && $qtdRegistro ) {
+
+                if ( ProdutoModel::registraEntradaSaida( $codigo, $tipo, $data, $qtdRegistro ) ) {
+                    header('Location: /estoque-de-moveis/home/');
+                }
+
+          } else {
+            echo "ocorreu um erro. <a href='/estoque-de-moveis/home/'> Voltar </a>";
+          }
+
+
+
+
+        }
+
+}

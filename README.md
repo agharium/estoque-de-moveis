@@ -6,3 +6,9 @@ Colaboradores:
 - [José Paulo Oliveira Filho](https://github.com/agharium/)
 - [Lucas Jardim da Silva](https://github.com/lucasjardi/)
 - [Róbson Rodrigues da Rosa](https://github.com/RobsonRR95/)
+
+Instalação
+
+- renomear pasta do projeto para estoque-de-moveis
+- executar o criaBanco.php. Exemplo no local: localhost/estoque-de-moveis/criaBanco.php
+- usuário default: email@email.com senha: 123

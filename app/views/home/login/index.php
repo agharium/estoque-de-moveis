@@ -14,15 +14,15 @@
 				<label for="senha">Senha</label>
 				<input type="password" id="senha" name="senha" required>
 
-				<input class="button-primary" type="submit" value="Entrar" name="submitLogin">
+				<input class="button-primary" style="float: right" type="submit" value="Entrar" name="submitLogin">
 
-				<div class="float-right">
+				<!-- <div class="float-right">
 					<h6 class="link-wrapper">
 						<a class="link" href="/estoque-de-moveis/home/cadastro">
 							Não tem cadastro?
 						</a>
 					</h6>
-				</div>
+				</div> -->
 			</fieldset>
 		</form>
 	</div>

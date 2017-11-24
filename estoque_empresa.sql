@@ -12,13 +12,13 @@ SET time_zone = "+00:00";
 
 --USE DATABASE `estoque_empresa`;
 
-CREATE TABLE `gerente` (
-  `gerente_codigo` int(11) NOT NULL,
-  `usuario_codigo` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+-- CREATE TABLE `gerente` (
+--   `gerente_codigo` int(11) NOT NULL,
+--   `usuario_codigo` int(11) NOT NULL
+-- ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO `gerente` (`gerente_codigo`, `usuario_codigo`) VALUES
-(1, 1);
+-- INSERT INTO `gerente` (`gerente_codigo`, `usuario_codigo`) VALUES
+-- (1, 1);
 
 CREATE TABLE `permissao` (
   `permissao_codigo` int(11) NOT NULL,
@@ -45,12 +45,14 @@ INSERT INTO `produto` (`produto_codigo`, `produto_nome`, `produto_descricao`, `p
 
 CREATE TABLE `produto_entrada` (
   `produto_codigo` int(11) NOT NULL,
-  `produto_entrada_data` datetime DEFAULT NULL
+  `produto_entrada_data` datetime DEFAULT NULL,
+  `produto_entrada_quantidade` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `produto_saida` (
   `produto_codigo` int(11) NOT NULL,
-  `produto_saida_data` datetime DEFAULT NULL
+  `produto_saida_data` datetime DEFAULT NULL,
+  `produto_saida_quantidade` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `usuario` (
@@ -63,12 +65,12 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO `usuario` (`usuario_codigo`, `usuario_nome`, `usuario_email`, `usuario_criacao`, `usuario_senha`, `permissao_codigo`) VALUES
-(1, 'Lucas', 'email@email.com', '2017-11-11 14:29:12', '123', 2);
+(1, 'Lucas', 'email@email.com', '2017-11-11 14:29:12', '$2y$10$F1WZpDMN9onaeTdxFPYFyuPsnFudfW.3BSSced..7RabvqsDxcvFu', 2);
 
 
-ALTER TABLE `gerente`
-  ADD PRIMARY KEY (`gerente_codigo`),
-  ADD KEY `usuario_codigo` (`usuario_codigo`);
+-- ALTER TABLE `gerente`
+--   ADD PRIMARY KEY (`gerente_codigo`),
+--   ADD KEY `usuario_codigo` (`usuario_codigo`);
 
 ALTER TABLE `permissao`
   ADD PRIMARY KEY (`permissao_codigo`);
@@ -76,38 +78,41 @@ ALTER TABLE `permissao`
 ALTER TABLE `produto`
   ADD PRIMARY KEY (`produto_codigo`);
 
-ALTER TABLE `produto_entrada`
-  ADD KEY `produto_codigo` (`produto_codigo`);
-
-ALTER TABLE `produto_saida`
-  ADD KEY `produto_codigo` (`produto_codigo`);
+-- ALTER TABLE `produto_entrada`
+--   ADD PRIMARY KEY (`produto_entrada_codigo`),
+--   ADD KEY `produto_codigo` (`produto_codigo`);
+--
+-- ALTER TABLE `produto_saida`
+--   ADD PRIMARY KEY (`produto_saida_codigo`),
+--   ADD KEY `produto_codigo` (`produto_codigo`);
 
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`usuario_codigo`),
   ADD KEY `permissao_codigo` (`permissao_codigo`);
 
 
-ALTER TABLE `gerente`
-  MODIFY `gerente_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+-- ALTER TABLE `gerente`
+--   MODIFY `gerente_codigo` int(11) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `permissao`
-  MODIFY `permissao_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `permissao_codigo` int(11) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `produto`
-  MODIFY `produto_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `produto_codigo` int(11) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `usuario`
-  MODIFY `usuario_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `usuario_codigo` int(11) NOT NULL AUTO_INCREMENT;
 
 
-ALTER TABLE `gerente`
-  ADD CONSTRAINT `gerente_ibfk_1` FOREIGN KEY (`usuario_codigo`) REFERENCES `usuario` (`usuario_codigo`);
 
-ALTER TABLE `produto_entrada`
-  ADD CONSTRAINT `produto_entrada_ibfk_1` FOREIGN KEY (`produto_codigo`) REFERENCES `produto` (`produto_codigo`);
+-- ALTER TABLE `gerente`
+--   ADD CONSTRAINT `gerente_ibfk_1` FOREIGN KEY (`usuario_codigo`) REFERENCES `usuario` (`usuario_codigo`);
 
-ALTER TABLE `produto_saida`
-  ADD CONSTRAINT `produto_saida_ibfk_1` FOREIGN KEY (`produto_codigo`) REFERENCES `produto` (`produto_codigo`);
+-- ALTER TABLE `produto_entrada`
+--   ADD CONSTRAINT `produto_entrada_ibfk_1` FOREIGN KEY (`produto_codigo`) REFERENCES `produto` (`produto_codigo`);
+--
+-- ALTER TABLE `produto_saida`
+--   ADD CONSTRAINT `produto_saida_ibfk_1` FOREIGN KEY (`produto_codigo`) REFERENCES `produto` (`produto_codigo`);
 
 ALTER TABLE `usuario`
   ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`permissao_codigo`) REFERENCES `permissao` (`permissao_codigo`);

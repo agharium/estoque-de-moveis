@@ -15,7 +15,11 @@ Class Home extends Controller {
 	}
 
 	public function cadastro() {
-		$this->renderizar('/home/cadastro/index');
+		if(isset($_SESSION['logado'])){
+	     $this->renderizar('/home/cadastro/index');
+	  }else{
+			 header('Location: /estoque-de-moveis/home');
+		}
 	}
 
 	public function logout()
@@ -28,18 +32,11 @@ Class Home extends Controller {
 	public function logar()
 	{
 		$email = $_POST["usuario"];
-		$senha = md5($_POST["senha"]);
+		$senha = $_POST["senha"];
 
 		if(Usuario::login($email,$senha)){
 			if(isset($_SESSION["logado"])){
-					//permissao 1 - admin (criar usuario, permissao etc)
-					if($_SESSION["permission"] == 1){
-						$this->renderizar('/admin/index');
-					}
-					//qualquer outra permissao vai para Dashboard normal (gerente, vendedor)
-					else{
-						header('Location: /estoque-de-moveis/home/');
-					}
+					header('Location: /estoque-de-moveis/home/');
 			}
 		} else {
 					$this->renderizar('/home/login/index','Usuario ou senha incorretos.');
@@ -53,11 +50,12 @@ Class Home extends Controller {
         $email = isset($_POST["usuario"]) ? $_POST["usuario"] : null;
         $senha = isset($_POST["senha"]) ? $_POST["senha"] : null;
         $senhaConfirmacao = isset($_POST["senhaConfirmacao"]) ? $_POST["senhaConfirmacao"] : null;
+				$permissao = isset($_POST["permissao"]) ? $_POST["permissao"] : null;
 
-        $passwordHashed = $senha === $senhaConfirmacao ? md5($senha) : null;
+        $passwordHashed = $senha === $senhaConfirmacao ? password_hash($senha,PASSWORD_DEFAULT) : null;
 
-        if ( $nome && $email && $senha && $senhaConfirmacao && $passwordHashed ) {
-            if( Usuario::cadastra($nome,$email,$passwordHashed) ) {
+        if ( $nome && $email && $senha && $senhaConfirmacao && $passwordHashed && $permissao ) {
+            if( Usuario::cadastra($nome,$email,$passwordHashed,$permissao) ) {
                 header('Location: /estoque-de-moveis/home/');
             }
         }
