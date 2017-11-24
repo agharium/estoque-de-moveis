@@ -91,3 +91,9 @@ footer {
 .menu-link:hover {
 	color: #fff !important;
 }
+
+/* milligram override */
+
+a {
+	color: #3498db;
+}
