@@ -30,11 +30,11 @@
 						  <td><?php echo "R$ ".$produto->getPreco(); ?></td>
 						  <td><?php echo $produto->getQuantidade(); ?></td>
 							<td>
-								<a href="/estoque-de-moveis/produto/registro/<?php echo $produto->getCodigo().'-'.$produto->getQuantidade(); ?>-entrada" class="icone-visualizar">
+								<a href="/estoque-de-moveis/produto/registro/<?php echo $produto->getCodigo().'-'.$produto->getQuantidade(); ?>-entrada" class="icone-entrada">
 									<i style="cursor: pointer" title="Registrar entrada" class="fa fa-sign-in"></i>
 								</a>
 								&nbsp;
-								<a href="/estoque-de-moveis/produto/registro/<?php echo $produto->getCodigo().'-'.$produto->getQuantidade(); ?>-saida" class="icone-visualizar">
+								<a href="/estoque-de-moveis/produto/registro/<?php echo $produto->getCodigo().'-'.$produto->getQuantidade(); ?>-saida" class="icone-saida">
 									<i style="cursor: pointer" title="Registrar saída" class="fa fa-sign-out"></i>
 								</a>
 								&nbsp;

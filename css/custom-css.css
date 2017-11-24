@@ -62,8 +62,16 @@ footer {
 }
 
 /* links */
-.icone-visualizar, .icone-editar, .icone-remover {
+.icone-entrada, .icone-saida, .icone-visualizar, .icone-editar, .icone-remover {
 	color: #bbb;
+}
+
+.icone-entrada:hover {
+	color: #27ae60;
+}
+
+.icon-saida:hover {
+	color: #f39c12;
 }
 
 .icone-visualizar:hover{
@@ -71,7 +79,7 @@ footer {
 }
 
 .icone-editar:hover{
-	color: #f39c12;
+	color: #16a085;
 }
 
 .icone-remover:hover {
