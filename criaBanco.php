@@ -1,27 +1,27 @@
 <?php
   // Name of the file
-  $filename = 'estoque_empresa.sql';
+  $filename             = 'estoque_empresa.sql';
   // MySQL host
-  $mysql_host = 'localhost';
+  $mysql_host           = 'localhost';
   // MySQL username
-  $mysql_username = 'root';
+  $mysql_username       = 'root';
   // MySQL password
-  $mysql_password = '';
+  $mysql_password       = '';
   // Database name
-  $mysql_database = 'estoque_empresa';
+  $mysql_database       = 'estoque_empresa';
 
   // Connect to MySQL server
-  $conn = mysqli_connect($mysql_host, $mysql_username, $mysql_password) or die('Error connecting to MySQL server: ' . mysqli_error($conn));
+  $conn                 = mysqli_connect($mysql_host, $mysql_username, $mysql_password) or die('Error connecting to MySQL server: ' . mysqli_error($conn));
 
   mysqli_query($conn, "DROP DATABASE IF EXISTS `estoque_empresa`;");
   mysqli_query($conn, "CREATE DATABASE `estoque_empresa`;");
 
-  $conn = mysqli_connect($mysql_host, $mysql_username, $mysql_password, $mysql_database) or die('Error connecting to MySQL server: ' . mysqli_error($conn));
+  $conn                 = mysqli_connect($mysql_host, $mysql_username, $mysql_password, $mysql_database) or die('Error connecting to MySQL server: ' . mysqli_error($conn));
 
   // Temporary variable, used to store current query
-  $templine = '';
+  $templine             = '';
   // Read in entire file
-  $lines = file($filename);
+  $lines                = file($filename);
   // Loop through each line
   foreach ($lines as $line){
     // Skip it if it's a comment
@@ -29,7 +29,7 @@
       continue;
 
     // Add this line to the current segment
-    $templine .= $line;
+    $templine           .= $line;
     // If it has a semicolon at the end, it's the end of the query
     if (substr(trim($line), -1, 1) == ';'){
         // Perform the query

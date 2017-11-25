@@ -63,40 +63,40 @@ class PseudoCrypt {
     );
 
     public static function base62($int) {
-        $key = "";
+        $key          = "";
         while(bccomp($int, 0) > 0) {
-            $mod = bcmod($int, 62);
-            $key .= chr(self::$chars62[$mod]);
-            $int = bcdiv($int, 62);
+            $mod      = bcmod($int, 62);
+            $key      .= chr(self::$chars62[$mod]);
+            $int      = bcdiv($int, 62);
         }
         return strrev($key);
     }
 
     public static function hash($num, $len = 5) {
-        $ceil = bcpow(62, $len);
-        $primes = array_keys(self::$golden_primes);
-        $prime = $primes[$len];
-        $dec = bcmod(bcmul($num, $prime), $ceil);
-        $hash = self::base62($dec);
+        $ceil         = bcpow(62, $len);
+        $primes       = array_keys(self::$golden_primes);
+        $prime        = $primes[$len];
+        $dec          = bcmod(bcmul($num, $prime), $ceil);
+        $hash         = self::base62($dec);
         return str_pad($hash, $len, "0", STR_PAD_LEFT);
     }
 
     public static function unbase62($key) {
-        $int = 0;
+        $int          = 0;
         foreach(str_split(strrev($key)) as $i => $char) {
-            $dec = array_search(ord($char), self::$chars62);
-            $int = bcadd(bcmul($dec, bcpow(62, $i)), $int);
+            $dec      = array_search(ord($char), self::$chars62);
+            $int      = bcadd(bcmul($dec, bcpow(62, $i)), $int);
         }
         return $int;
     }
 
     public static function unhash($hash) {
-        $len = strlen($hash);
-        $ceil = bcpow(62, $len);
-        $mmiprimes = array_values(self::$golden_primes);
-        $mmi = $mmiprimes[$len];
-        $num = self::unbase62($hash);
-        $dec = bcmod(bcmul($num, $mmi), $ceil);
+        $len        = strlen($hash);
+        $ceil       = bcpow(62, $len);
+        $mmiprimes  = array_values(self::$golden_primes);
+        $mmi        = $mmiprimes[$len];
+        $num        = self::unbase62($hash);
+        $dec        = bcmod(bcmul($num, $mmi), $ceil);
         return $dec;
     }
 

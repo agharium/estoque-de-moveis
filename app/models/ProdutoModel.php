@@ -62,10 +62,10 @@
 
         public function insertProduto($produto)
         {
-          $ok = false;
-          $conn = Database::getConnection();
+          $ok         = false;
+          $conn       = Database::getConnection();
 
-          $stmt = $conn->prepare(
+          $stmt       = $conn->prepare(
                                 "INSERT INTO
                                       produto
                                    (produto_nome,
@@ -96,15 +96,15 @@
 
         public function getProdutoById($id)
         {
-          $conn = Database::getConnection();
+          $conn     = Database::getConnection();
 
-          $stmt = $conn->prepare("SELECT * FROM produto WHERE produto_codigo = ? LIMIT 1");
+          $stmt     = $conn->prepare("SELECT * FROM produto WHERE produto_codigo = ? LIMIT 1");
           $stmt->bind_param("i",intval($id));
           $stmt->execute();
     			$stmt->bind_result($codigo,$nome,$descricao,$img,$preco,$quantidade);
         	$stmt->store_result();
 
-          $produto = null;
+          $produto  = null;
 
           if ( $stmt->num_rows == 1 ){
 
@@ -127,12 +127,12 @@
         }
 
         public function getProdutos($pagination=false, $num=0) {
-          $conn = Database::getConnection();
+          $conn       = Database::getConnection();
 
-          $sql = "SELECT * FROM produto ";
+          $sql        = "SELECT * FROM produto ";
           if($pagination) $sql.= "LIMIT $num, 10";
 
-          $result = $conn->query($sql);
+          $result     = $conn->query($sql);
 
           if ($result->num_rows > 0) {
               $produtos = array();
@@ -161,10 +161,10 @@
 
         public function updateProduto($produto)
         {
-          $ok = false;
-          $conn = Database::getConnection();
+          $ok         = false;
+          $conn       = Database::getConnection();
 
-          $stmt = $conn->prepare(
+          $stmt       = $conn->prepare(
                                 "UPDATE
                                         produto
                                  SET
@@ -187,7 +187,7 @@
                             );
 
           if($stmt->execute()){
-            $ok = true;
+            $ok       = true;
           }
 
           $stmt->close();
@@ -198,13 +198,13 @@
 
         public function deletarProdutoById($id)
         {
-          $ok = false;
-          $conn = Database::getConnection();
+          $ok         = false;
+          $conn       = Database::getConnection();
 
-          $stmt = $conn->prepare("DELETE FROM produto WHERE produto_codigo = ?");
+          $stmt       = $conn->prepare("DELETE FROM produto WHERE produto_codigo = ?");
           $stmt->bind_param('i',intval($id));
           if($stmt->execute()){
-            $ok = true;
+            $ok       = true;
           }
 
           $stmt->close();
@@ -220,13 +220,13 @@
 
         public function registraEntradaSaida( $codigo, $tipo, $data, $qtd )
         {
-          $ok = false;
-          $conn = Database::getConnection();
+          $ok         = false;
+          $conn       = Database::getConnection();
 
           $conn->autocommit(FALSE);
 
           try {
-            $stmt = $conn->prepare("INSERT INTO produto_". $tipo ."
+            $stmt     = $conn->prepare("INSERT INTO produto_". $tipo ."
                                   (produto_codigo, produto_" .$tipo. "_data,produto_" .$tipo. "_quantidade)
                                   VALUES (?,?,?) ");
 
@@ -258,10 +258,5 @@
           return $ok;
 
         }
-
-
-
-
-
     }
 ?>

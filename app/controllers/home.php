@@ -8,7 +8,7 @@ Class Home extends Controller {
 
 	public function index() {
 		if(isset($_SESSION['logado'])){
-	     $this->renderizar('/home/dashboard/index',ProdutoModel::getProdutos(true));
+	     $this->renderizar('/home/dashboard/index', ProdutoModel::getProdutos(true));
 	  }else{
 			 $this->renderizar('/home/login/index');
 		}
@@ -46,11 +46,11 @@ Class Home extends Controller {
 
 	public function cadastrar()
       {
-        $nome = isset($_POST["nome"]) ? $_POST["nome"] : null;
-        $email = isset($_POST["usuario"]) ? $_POST["usuario"] : null;
-        $senha = isset($_POST["senha"]) ? $_POST["senha"] : null;
-        $senhaConfirmacao = isset($_POST["senhaConfirmacao"]) ? $_POST["senhaConfirmacao"] : null;
-				$permissao = isset($_POST["permissao"]) ? $_POST["permissao"] : null;
+        $nome 								= isset($_POST["nome"]) ? $_POST["nome"] : null;
+        $email 								= isset($_POST["usuario"]) ? $_POST["usuario"] : null;
+        $senha 								= isset($_POST["senha"]) ? $_POST["senha"] : null;
+        $senhaConfirmacao 		= isset($_POST["senhaConfirmacao"]) ? $_POST["senhaConfirmacao"] : null;
+				$permissao 						= isset($_POST["permissao"]) ? $_POST["permissao"] : null;
 
         $passwordHashed = $senha === $senhaConfirmacao ? password_hash($senha,PASSWORD_DEFAULT) : null;
 

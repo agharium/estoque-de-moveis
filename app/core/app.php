@@ -1,11 +1,11 @@
 <?php
 Class App{
 
-	protected $controller = "home"; //Default home
+	protected $controller 		= "home"; //Default home
 
-	protected $method = "index";//Default metodo
+	protected $method 				= "index";//Default metodo
 
-	protected $param = [];
+	protected $param 					= [];
 
 	public function __construct()
 	{

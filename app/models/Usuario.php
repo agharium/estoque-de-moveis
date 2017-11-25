@@ -62,10 +62,10 @@
 		//boolean
 		public function login($email, $senha)
 		{
-			$conn = Database::getConnection();
-			$success = false;
+			$conn 				= Database::getConnection();
+			$success 			= false;
 
-			$stmt = $conn->prepare("SELECT usuario_nome,usuario_senha,permissao_codigo
+			$stmt 				= $conn->prepare("SELECT usuario_nome,usuario_senha,permissao_codigo
 				 										from usuario WHERE usuario_email = ? LIMIT 1");
 			$stmt->bind_param("s", $email);
 			$stmt->execute();
@@ -94,12 +94,12 @@
 
 		public function cadastra($nome,$email,$senha,$permissao)
 		{
-			$conn = Database::getConnection();
+			$conn 				= Database::getConnection();
 
-			$sql = "INSERT INTO usuario (usuario_nome, usuario_email, usuario_senha,permissao_codigo)
+			$sql 					= "INSERT INTO usuario (usuario_nome, usuario_email, usuario_senha,permissao_codigo)
 			VALUES (?,?,?,?)";
 
-			$stmt = $conn->prepare($sql);
+			$stmt 				= $conn->prepare($sql);
 
 			$stmt->bind_param("sssi",$nome,$email,$senha,$permissao);
 

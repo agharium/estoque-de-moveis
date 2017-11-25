@@ -52,11 +52,11 @@
 
       public function insert()
       {
-        $nomeProduto = isset($_POST["nome"]) ? $_POST["nome"] : null;
-        $descricaoProduto = $_POST["descricao"];
-        $precoProduto = isset($_POST["preco"]) ? floatval($_POST["preco"]) : null;
-        $quantidadeProduto = isset($_POST["quantidade"]) ? intval($_POST["quantidade"]) : null;
-        $imagemProduto = '';
+        $nomeProduto              = isset($_POST["nome"]) ? $_POST["nome"] : null;
+        $descricaoProduto         = $_POST["descricao"];
+        $precoProduto             = isset($_POST["preco"]) ? floatval($_POST["preco"]) : null;
+        $quantidadeProduto        = isset($_POST["quantidade"]) ? intval($_POST["quantidade"]) : null;
+        $imagemProduto            = '';
 
 
         if ( $nomeProduto && $precoProduto ){
@@ -80,12 +80,12 @@
 
       public function update()
       {
-        $codigoProduto = isset($_POST["codigoProduto"]) ? intval($_POST["codigoProduto"]) : null;
-        $nomeProduto = isset($_POST["nomeUpdate"]) ? $_POST["nomeUpdate"] : null;
-        $descricaoProduto = $_POST["descricaoUpdate"];
-        $precoProduto = isset($_POST["precoUpdate"]) ? $_POST["precoUpdate"] : null;
-        $quantidadeProduto = isset($_POST["quantidadeUpdate"]) ? $_POST["quantidadeUpdate"] : null;
-        $imagemProduto = $_POST["imgProduto"];
+        $codigoProduto              = isset($_POST["codigoProduto"]) ? intval($_POST["codigoProduto"]) : null;
+        $nomeProduto                = isset($_POST["nomeUpdate"]) ? $_POST["nomeUpdate"] : null;
+        $descricaoProduto           = $_POST["descricaoUpdate"];
+        $precoProduto               = isset($_POST["precoUpdate"]) ? $_POST["precoUpdate"] : null;
+        $quantidadeProduto          = isset($_POST["quantidadeUpdate"]) ? $_POST["quantidadeUpdate"] : null;
+        $imagemProduto              = $_POST["imgProduto"];
 
         if ( $codigoProduto && $nomeProduto && $precoProduto && $quantidadeProduto ) {
           if($_FILES['imagemUpdate']['name'] != "" || $_FILES['imagemUpdate']['size'] != 0){
@@ -108,9 +108,9 @@
 
         public function registrar()
         {
-          $tipo = isset($_POST["tipoRegistro"]) ? $_POST["tipoRegistro"] : null;
-          $codigo = isset($_POST["codigoRegistro"]) ? intval($_POST["codigoRegistro"]) : null;
-          $qtdAtual = isset($_POST["qtdAtual"]) ? intval($_POST["qtdAtual"]) : null;
+          $tipo       = isset($_POST["tipoRegistro"]) ? $_POST["tipoRegistro"] : null;
+          $codigo     = isset($_POST["codigoRegistro"]) ? intval($_POST["codigoRegistro"]) : null;
+          $qtdAtual   = isset($_POST["qtdAtual"]) ? intval($_POST["qtdAtual"]) : null;
 
           $data = '';
           if (!empty($_POST["dataRegistro"])) {

@@ -1,19 +1,15 @@
 <?php
-  /**
-   *
-   */
   class Database
   {
-
     public function getConnection()
     {
-      $servername = "localhost";
-      $username = "root";
-      $password = "";
-      $db = "estoque_empresa";
+      $servername     = "localhost";
+      $username       = "root";
+      $password       = "";
+      $db             = "estoque_empresa";
 
       // Create connection
-      $conn = new mysqli($servername, $username, $password,$db);
+      $conn           = new mysqli($servername, $username, $password,$db);
 
       // Check connection
       if ($conn->connect_error) {
@@ -22,5 +18,4 @@
 
       return $conn;
     }
-
   }
