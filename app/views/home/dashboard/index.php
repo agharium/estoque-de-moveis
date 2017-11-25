@@ -22,6 +22,7 @@
 					</tr>
 				</thead>
 				<tbody>
+					<?php if($dados): ?>
 					<?php foreach ($dados as $produto): ?>
 						<tr>
 						  <td class="hidden-cell"><input type="radio" name="select"></td>
@@ -48,6 +49,7 @@
 							</td>
 						</tr>
 					<?php endforeach; ?>
+				<?php endif; ?>
 				</tbody>
 			</table>
 		</div>
