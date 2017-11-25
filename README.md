@@ -9,6 +9,10 @@ Colaboradores:
 
 Instalação
 
-- renomear pasta do projeto para estoque-de-moveis
-- executar o criaBanco.php. Exemplo no local: localhost/estoque-de-moveis/criaBanco.php
-- usuário default: email@email.com senha: 123
+- O projeto precisa estar na raiz do servidor (exemplo: htdocs/estoque-de-moveis ; www/estoque-de-moveis)
+- Certifique se a pasta do projeto está com nome estoque-de-moveis. (tire o '-master' do final)
+- executar o criaBanco.php. Exemplo : localhost/estoque-de-moveis/criaBanco.php
+
+usuário default: 
+email@email.com
+senha: 123
