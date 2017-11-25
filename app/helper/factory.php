@@ -1,5 +1,6 @@
 <?php
     require_once "app/models/ProdutoModel.php";
+    error_reporting(0);
 
     for ($i=1; $i <= $qtd; $i++) {
 
