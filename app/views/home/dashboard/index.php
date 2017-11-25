@@ -7,7 +7,7 @@
 	require(VIEW_PATH . "/home/head.php");
 ?>
 	<div class="container">
-		<h2 class="text-center"> ESTOQUE </h2>
+		<h2 class="text-center"> PRODUTOS </h2>
 		<a href="#"><i class="add" class='fa fa-plus'></i></a>
 		<div class="padding">
 			<table class="produtos-table">
@@ -25,7 +25,7 @@
 					<?php foreach ($dados as $produto): ?>
 						<tr>
 						  <td class="hidden-cell"><input type="radio" name="select"></td>
-						  <td><?php echo $produto->getCodigo(); ?></td>
+						  <td style="color: #a1a1a1"><?php echo $produto->getCodigo(); ?></td>
 						  <td><?php echo $produto->getNome(); ?></td>
 						  <td><?php echo "R$ ".$produto->getPreco(); ?></td>
 						  <td><?php echo $produto->getQuantidade(); ?></td>
