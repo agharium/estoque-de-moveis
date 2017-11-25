@@ -21,8 +21,8 @@ SET time_zone = "+00:00";
 -- (1, 1);
 
 CREATE TABLE `permissao` (
-  `permissao_codigo` int(11) NOT NULL,
-  `permissao_nome` varchar(50) NOT NULL
+  `permissao_codigo`        int(11) NOT NULL,
+  `permissao_nome`          varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO `permissao` (`permissao_codigo`, `permissao_nome`) VALUES
@@ -31,12 +31,12 @@ INSERT INTO `permissao` (`permissao_codigo`, `permissao_nome`) VALUES
 (3, 'acessar,inserir');
 
 CREATE TABLE `produto` (
-  `produto_codigo` int(11) NOT NULL,
-  `produto_nome` varchar(50) NOT NULL DEFAULT 'Nome do produto',
-  `produto_descricao` text NOT NULL,
-  `produto_img` text NOT NULL,
-  `produto_preco` double NOT NULL DEFAULT '0',
-  `produto_quantidade` int(11) NOT NULL DEFAULT '0'
+  `produto_codigo`          int(11) NOT NULL,
+  `produto_nome`            varchar(50) NOT NULL DEFAULT 'Nome do produto',
+  `produto_descricao`       text NOT NULL,
+  `produto_img`             text NOT NULL,
+  `produto_preco`           double NOT NULL DEFAULT '0',
+  `produto_quantidade`      int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO `produto` (`produto_codigo`, `produto_nome`, `produto_descricao`, `produto_img`, `produto_preco`, `produto_quantidade`) VALUES
@@ -44,29 +44,28 @@ INSERT INTO `produto` (`produto_codigo`, `produto_nome`, `produto_descricao`, `p
 (2, 'Armario', 'armario lindao', '', 400, 3);
 
 CREATE TABLE `produto_entrada` (
-  `produto_codigo` int(11) NOT NULL,
-  `produto_entrada_data` datetime DEFAULT NULL,
+  `produto_codigo`          int(11) NOT NULL,
+  `produto_entrada_data`    datetime DEFAULT NULL,
   `produto_entrada_quantidade` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `produto_saida` (
-  `produto_codigo` int(11) NOT NULL,
-  `produto_saida_data` datetime DEFAULT NULL,
+  `produto_codigo`          int(11) NOT NULL,
+  `produto_saida_data`      datetime DEFAULT NULL,
   `produto_saida_quantidade` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `usuario` (
-  `usuario_codigo` int(11) NOT NULL,
-  `usuario_nome` varchar(50) NOT NULL,
-  `usuario_email` varchar(50) NOT NULL DEFAULT 'email@email.com',
-  `usuario_criacao` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `usuario_senha` varchar(255) NOT NULL,
-  `permissao_codigo` int(11) DEFAULT NULL
+  `usuario_codigo`          int(11) NOT NULL,
+  `usuario_nome`            varchar(50) NOT NULL,
+  `usuario_email`           varchar(50) NOT NULL DEFAULT 'email@email.com',
+  `usuario_criacao`         timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `usuario_senha`           varchar(255) NOT NULL,
+  `permissao_codigo`        int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO `usuario` (`usuario_codigo`, `usuario_nome`, `usuario_email`, `usuario_criacao`, `usuario_senha`, `permissao_codigo`) VALUES
 (1, 'Lucas', 'email@email.com', '2017-11-11 14:29:12', '$2y$10$F1WZpDMN9onaeTdxFPYFyuPsnFudfW.3BSSced..7RabvqsDxcvFu', 2);
-
 
 -- ALTER TABLE `gerente`
 --   ADD PRIMARY KEY (`gerente_codigo`),
