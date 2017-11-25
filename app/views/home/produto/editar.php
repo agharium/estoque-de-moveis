@@ -14,7 +14,15 @@
 		<div style="justify-content: left; align-self: center;">
 			<input type="hidden" name="codigoProduto" value="<?php echo $dados->getCodigo(); ?>">
 			<input type="hidden" name="imgProduto" value="<?php echo $dados->getImg(); ?>">
-			<img id="imgProd" src="/estoque-de-moveis/<?php echo $dados->getImg(); ?>" style="width:250px;">
+			<img id="imgProd" src="
+			<?php
+				if (strpos($dados->getImg(), 'http') !== false){
+					echo $dados->getImg();
+				} else{
+					echo "/estoque-de-moveis/" . $dados->getImg();
+				}
+			?>
+			" style="width:250px;">
 		</div>
 		<div style="justify-content: right; align-self: center; margin-left: 50px; width: 100%">
 			<div style="display: flex; margin-bottom: 15px;">

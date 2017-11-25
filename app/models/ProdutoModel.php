@@ -65,6 +65,8 @@
           $ok         = false;
           $conn       = Database::getConnection();
 
+          if($produto->getImg() == "") $produto->setImg("http://via.placeholder.com/250x250");
+
           $stmt       = $conn->prepare(
                                 "INSERT INTO
                                       produto

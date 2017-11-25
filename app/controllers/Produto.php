@@ -56,7 +56,7 @@
         $descricaoProduto         = $_POST["descricao"];
         $precoProduto             = isset($_POST["preco"]) ? floatval($_POST["preco"]) : null;
         $quantidadeProduto        = isset($_POST["quantidade"]) ? intval($_POST["quantidade"]) : null;
-        $imagemProduto            = '';
+        $imagemProduto            = 'http://via.placeholder.com/250x250';
 
 
         if ( $nomeProduto && $precoProduto ){
