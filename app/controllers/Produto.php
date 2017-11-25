@@ -112,6 +112,7 @@
           $codigo     = isset($_POST["codigoRegistro"]) ? intval($_POST["codigoRegistro"]) : null;
           $qtdAtual   = isset($_POST["qtdAtual"]) ? intval($_POST["qtdAtual"]) : null;
 
+          # se nenhuma Data for setada, ele pega a data e hora atual #
           $data = '';
           if (!empty($_POST["dataRegistro"])) {
             $data = $_POST["dataRegistro"];
@@ -119,11 +120,27 @@
             $data = date('Y-m-d H:i:s');
           }
 
+          # verificação de quantidade. Tem que ser maior que 0 em ambos os casos (entrada e saida)
+          # E na saida nao pode sair mais do que tem atualmente no estoque #
+
           $qtdRegistro = null;
-          if (isset($_POST["quantidadeRegistro"]) && $_POST["quantidadeRegistro"] > 0 && $_POST["quantidadeRegistro"] <= $qtdAtual) {
-              $qtdRegistro = $_POST["quantidadeRegistro"];
+          if (isset($_POST["quantidadeRegistro"]) && $_POST["quantidadeRegistro"] > 0 ) {
+
+
+            if ( $tipo == "entrada" ) {
+                $qtdRegistro = $_POST["quantidadeRegistro"];
+            }
+
+            if ( $tipo == "saida" ) {
+                if ( $_POST["quantidadeRegistro"] <= $qtdAtual ) {
+                    $qtdRegistro = $_POST["quantidadeRegistro"];
+                }
+            }
+
+
           }
 
+          # se todas as variaveis tiverem OK ele registra #
           if ( $tipo && $codigo && $qtdRegistro ) {
 
                 if ( ProdutoModel::registraEntradaSaida( $codigo, $tipo, $data, $qtdRegistro ) ) {
@@ -136,11 +153,10 @@
 
         }
 
-
+        #### PAGINACAO ####
         public function page($num='')
         {
           $this->renderizar('/home/dashboard/index',ProdutoModel::getProdutos(true, ($num - 1) * 10 ));
-          // echo $num / $;
         }
 
         public function getEstoqueCount()
