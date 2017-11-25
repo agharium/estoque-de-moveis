@@ -258,5 +258,66 @@
           return $ok;
 
         }
+
+
+        ##################### RELATÓRIOS #####################
+        public function relatorioProdutoEntrada($data_inicial, $data_final){
+          $conn       = Database::getConnection();
+          $stmt       = $conn->prepare("
+                                        SELECT
+                                          *
+                                        FROM
+                                          produto_entrada
+                                        WHERE
+                                          produto_entrada.produto_entrada_data BETWEEN ? AND ?
+                                        ");
+          $stmt->bind_param("ss", $data_inicial, $data_final);
+          if($stmt->execute()){
+            if ($result->num_rows > 0) {
+              $produtos = array();
+              while($row = $result->fetch_assoc()) {
+                $produto = new Produto();
+
+
+                array_push($produtos, $produto);
+              }
+              return $produtos;
+            }
+          }
+          $stmt->close();
+          $conn->close();
+          return NULL;
+        }
+
+        public function relatorioProdutoSaida($data_inicial, $data_final){
+          $conn       = Database::getConnection();
+          $stmt       = $conn->prepare("
+                                        SELECT
+                                          *
+                                        FROM
+                                          produto_saida
+                                        WHERE
+                                          produto_saida.produto_saida_data BETWEEN ? AND ?
+                                        ");
+          $stmt->bind_param("ss", $data_inicial, $data_final);
+          if($stmt->execute()){
+            if ($result->num_rows > 0) {
+              $produtos = array();
+              while($row = $result->fetch_assoc()) {
+
+              }
+              return $produtos;
+            }
+          }
+          $stmt->close();
+          $conn->close();
+          return NULL;
+        }
+    }
+
+    class ProdutoRelatorio extends ProdutoModel {
+      private $produto;
+      private $produto_data;
+      private $produto_quantidade;
     }
 ?>
