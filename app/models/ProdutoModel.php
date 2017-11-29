@@ -128,6 +128,40 @@
 
         }
 
+        public function getProdutosLike($nomeProd)
+        {
+          $conn       = Database::getConnection();
+
+          $stmt     = $conn->prepare("SELECT * FROM produto WHERE produto_nome LIKE CONCAT('%',?,'%') ");
+          $stmt->bind_param("s",$nomeProd);
+          $stmt->execute();
+    			$stmt->bind_result($codigo,$nome,$descricao,$img,$preco,$quantidade);
+        	$stmt->store_result();
+
+          $produtos = null;
+
+          if ( $stmt->num_rows > 0 ) {
+              $produtos = array();
+              // output data of each row
+              while( $result = $stmt->fetch() ) {
+
+                  $produto = new ProdutoModel();
+                  $produto->setCodigo($codigo);
+                  $produto->setNome($nome);
+                  $produto->setDescricao($descricao);
+                  $produto->setImg($img);
+                  $produto->setPreco($preco);
+                  $produto->setQuantidade($quantidade);
+
+                  array_push($produtos,$produto);
+              }
+          }
+
+          $conn->close();
+          return $produtos;
+        }
+
+
         public function getProdutos($pagination=false, $num=0) {
           $conn       = Database::getConnection();
 
@@ -215,7 +249,6 @@
         }
 
         # FIM CRUD #
-
 
 
         ##################### ENTRADAS E SAIDAS DE PRODUTOS #####################

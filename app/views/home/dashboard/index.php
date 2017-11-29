@@ -10,6 +10,9 @@
 		<h2 class="text-center"> PRODUTOS </h2>
 		<a href="#"><i class="add" class='fa fa-plus'></i></a>
 		<div class="padding">
+			<form action="/estoque-de-moveis/produto/pesquisa/" method="get">
+				<input type="text" name="produtoNome" placeholder="Buscar produto por Código ou Nome">
+			</form>
 			<table class="produtos-table">
 				<thead>
 					<tr>

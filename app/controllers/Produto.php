@@ -17,7 +17,13 @@
 
       public function detalhes($produto_cod='')
       {
-        $this->renderizar("/home/produto/detalhes",ProdutoModel::getProdutoById(PseudoCrypt::unhash($produto_cod)));
+        $produtos = ProdutoModel::getProdutoById(PseudoCrypt::unhash($produto_cod));
+        if($produtos){
+          $this->renderizar("/home/produto/detalhes", $produtos);
+        } else {
+          header('Location: /estoque-de-moveis/home/');
+        }
+
       }
 
       public function adicionar()
@@ -27,7 +33,13 @@
 
       public function editar($produto_cod='')
       {
-        $this->renderizar("/home/produto/editar",ProdutoModel::getProdutoById(PseudoCrypt::unhash($produto_cod)));
+        $produtos = ProdutoModel::getProdutoById(PseudoCrypt::unhash($produto_cod));
+        if($produtos){
+          $this->renderizar("/home/produto/editar", $produtos);
+        } else {
+          header('Location: /estoque-de-moveis/home/');
+        }
+
       }
 
       public function remover($produto_cod='')
@@ -48,6 +60,29 @@
         else {
           header('Location: /estoque-de-moveis/home/');
         }
+      }
+
+      public function pesquisa()
+      {
+        $busca = isset($_GET["produtoNome"]) ? $_GET["produtoNome"]:null;
+
+        if($busca){
+
+              $codigo = null;
+
+              if ( ctype_digit($busca) ) {
+                  $codigo = $busca;
+              }
+
+              if($codigo){
+                  header('Location: /estoque-de-moveis/produto/detalhes/' . PseudoCrypt::hash($codigo));
+              }
+              else{
+                  $this->renderizar('/home/dashboard/index', ProdutoModel::getProdutosLike($busca), $pagBusca = true);
+              }
+
+        }
+
       }
 
       public function insert()

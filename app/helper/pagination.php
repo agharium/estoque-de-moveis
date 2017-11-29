@@ -1,17 +1,20 @@
 <?php
-	require_once("app/controllers/Produto.php");
 
-	$produtosPorPagina 			= 10;
-	$estoqueCount						= Produto::getEstoqueCount();
+	if ( !$pagBusca ) {
+		require_once("app/controllers/Produto.php");
 
-	if ($estoqueCount >= 0){
-		$qtdPaginas 					= intval(ceil($estoqueCount / $produtosPorPagina));
+		$produtosPorPagina 			= 10;
+		$estoqueCount						= Produto::getEstoqueCount();
 
-		echo "<div style='text-align: center;'>";
-		for ($i=1; $i<=$qtdPaginas; $i++) {
-			echo "<a href='/estoque-de-moveis/produto/page/$i'>" . $i . "</a> &nbsp;";
+		if ($estoqueCount >= 0){
+			$qtdPaginas 					= intval(ceil($estoqueCount / $produtosPorPagina));
+
+			echo "<div style='text-align: center;'>";
+			for ($i=1; $i<=$qtdPaginas; $i++) {
+				echo "<a href='/estoque-de-moveis/produto/page/$i'>" . $i . "</a> &nbsp;";
+			}
+			echo "</div>";
 		}
-		echo "</div>";
 	}
 
 ?>
