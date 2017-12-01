@@ -34,20 +34,26 @@
 						  <td><?php echo "R$ ".$produto->getPreco(); ?></td>
 						  <td><?php echo $produto->getQuantidade(); ?></td>
 							<td>
-								<a href="/estoque-de-moveis/produto/registro/<?php echo $produto->getCodigo().'-'.$produto->getQuantidade(); ?>-entrada" class="icone-entrada" title="Registrar entrada">
+								<a href="/estoque-de-moveis/produto/registro/<?php echo $produto->getCodigo().'-'.$produto->getQuantidade(); ?>-entrada" class="icone-entrada hint--top hint--success" aria-label="Registrar entrada">
 									<i class="fa fa-sign-in"></i>
 								</a>
 								&nbsp;
-								<a href="/estoque-de-moveis/produto/registro/<?php echo $produto->getCodigo().'-'.$produto->getQuantidade(); ?>-saida" class="icone-saida" title="Registrar saída">
+								<a href="/estoque-de-moveis/produto/registro/<?php echo $produto->getCodigo().'-'.$produto->getQuantidade(); ?>-saida" class="icone-saida hint--top hint--warning" aria-label="Registrar saída">
 									<i class="fa fa-sign-out"></i>
 								</a>
 								&nbsp;
 							<?php if ($pm==2): ?>
-								<a href="/estoque-de-moveis/produto/detalhes/<?php echo PseudoCrypt::hash($produto->getCodigo()); ?>" class="icone-visualizar" title="Visualizar"><i class='fa fa-eye'></i></a>
+								<a href="/estoque-de-moveis/produto/detalhes/<?php echo PseudoCrypt::hash($produto->getCodigo()); ?>" class="icone-visualizar hint--top hint--info" aria-label="Visualizar produto">
+									<i class='fa fa-eye'></i>
+								</a>
 								&nbsp;
-								<a href="/estoque-de-moveis/produto/editar/<?php echo PseudoCrypt::hash($produto->getCodigo()); ?>" class="icone-editar" title="Editar"><i class='fa fa-pencil'></i></a>
+								<a href="/estoque-de-moveis/produto/editar/<?php echo PseudoCrypt::hash($produto->getCodigo()); ?>" class="icone-editar hint--top" aria-label="Editar produto">
+									<i class='fa fa-pencil'></i>
+								</a>
 								&nbsp;
-								<a onclick="confirmDialog(<?php echo $produto->getCodigo(); ?>)" style="cursor:pointer" class="icone-remover" title="Remover"><i class='fa fa-trash-o'></i></a>
+								<a onclick="confirmDialog(<?php echo $produto->getCodigo(); ?>)" style="cursor:pointer" class="icone-remover hint--top hint--error" aria-label="Remover produto">
+									<i class='fa fa-trash-o'></i>
+								</a>
 							<?php endif; ?>
 							</td>
 						</tr>
