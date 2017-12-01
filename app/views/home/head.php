@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
 	<link rel="stylesheet" href="//rawgit.com/agharium/estoque-de-moveis/master/css/custom-css.css">
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+	<link rel="stylesheet" href="//rawgit.com/agharium/estoque-de-moveis/master/css/hint.min.css">
 
 	<?php if ($title == "Estoque de Móveis - Painel de Controle"){
 		echo
