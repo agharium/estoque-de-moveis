@@ -191,6 +191,7 @@
         #### PAGINACAO ####
         public function page($num='')
         {
+          $_GET["num"] = $num;
           $this->renderizar('/home/dashboard/index',ProdutoModel::getProdutos(true, ($num - 1) * 10 ));
         }
 

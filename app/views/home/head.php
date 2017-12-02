@@ -15,6 +15,13 @@
 	} ?>
 
 	<title> <?php echo $title ?> </title>
+
+	<style>
+		.active{
+			background-color: #9b4dca !important;
+			color: white !important;
+		}
+	</style>
 </head>
 <body>
 	<?php if ($title == "Estoque de Móveis - Painel de Controle"){

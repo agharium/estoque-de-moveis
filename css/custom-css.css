@@ -51,12 +51,12 @@ footer {
 	cursor: pointer;
 }
 
-.produtos-table thead th, 
+.produtos-table thead th,
 .produtos-table tbody td {
 	text-align: center;
 }
 
-.produtos-table thead th:first-child, 
+.produtos-table thead th:first-child,
 .produtos-table tbody td:first-child {
 	display: none;
 }
