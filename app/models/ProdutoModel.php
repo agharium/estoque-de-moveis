@@ -1,6 +1,5 @@
 <?php
     require_once("Database.php");
-    require_once("Usuario.php");
 
     class ProdutoModel {
         private $codigo;

@@ -1,6 +1,5 @@
 <?php
 	require_once("Database.php");
-	require_once("Permissao.php");
 
 	class Usuario{
 		private $codigo;
