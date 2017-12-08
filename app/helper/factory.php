@@ -16,4 +16,4 @@
 
     }
 
-    echo "Dados inseridos...";
+    echo "Dados inseridos... <a href='/estoque-de-moveis/home/'> Ir para home </a>";

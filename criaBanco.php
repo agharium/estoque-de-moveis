@@ -38,4 +38,5 @@
         $templine = '';
     }
   }
+  echo "Banco Criado. <a href='/estoque-de-moveis/home/'> Ir para home </a>";
   ?>
