@@ -2,19 +2,13 @@ Requisitos:
 
 - Interface para cadastrar produto e ver disponibilidade no estoque
 - Possibilidade de adicionar e remover itens do estoque
-- Possibilidade de visualizar o preço através do código do produto
+- Possibilidade de visualizar o preï¿½o atravï¿½s do cï¿½digo do produto
 - Atribuir imagem do produto
 - Login para acessar o sistema, diferenciado de gerente e vendedor
-- O vendedor só pode acessar e incluir dados no estoque
+- O vendedor sï¿½ pode acessar e incluir dados no estoque
 - Gerente pode fazer tudo, movimentar o estoque
 - Dividir em telas a parte do login, visualizar produtos
-- Uma tela para cadastro, remoção
-- Um campo de busca para encontrar os produtos, por nome ou por código
-- Cadastro tem que ter código, descrição, quantidade, preço
-- Colocar imagem na página de login
-
-
-Permissoes (Banco de dados):
-
-vendedor- acessar,inserir,editar,remover
-gerente- acessar,inserir
+- Uma tela para cadastro, remoï¿½ï¿½o
+- Um campo de busca para encontrar os produtos, por nome ou por cï¿½digo
+- Cadastro tem que ter cï¿½digo, descriï¿½ï¿½o, quantidade, preï¿½o
+- Colocar imagem na pï¿½gina de login
