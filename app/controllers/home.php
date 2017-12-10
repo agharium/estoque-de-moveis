@@ -1,9 +1,5 @@
 <?php
 
-require_once 'Controller.php';
-require_once 'app/models/Usuario.php';
-require_once 'app/models/ProdutoModel.php';
-
 Class Home extends Controller {
 
 	public function index() {

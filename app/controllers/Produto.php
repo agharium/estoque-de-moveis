@@ -1,7 +1,4 @@
 <?php
-    require_once 'Controller.php';
-    require_once 'app/helper/PseudoCrypt.php';
-    require_once 'app/models/ProdutoModel.php';
 
     class Produto extends Controller
     {
