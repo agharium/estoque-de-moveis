@@ -311,8 +311,7 @@
               $produtos = array();
               while($row = $result->fetch_assoc()) {
                 $produto = new Produto();
-
-
+                //Não sei se precisa colocar mais algo aqui
                 array_push($produtos, $produto);
               }
               return $produtos;
@@ -338,7 +337,9 @@
             if ($result->num_rows > 0) {
               $produtos = array();
               while($row = $result->fetch_assoc()) {
-
+                $produto = new Produto();
+                //Não sei se precisa colocar mais algo aqui
+                array_push($produtos, $produto);
               }
               return $produtos;
             }
