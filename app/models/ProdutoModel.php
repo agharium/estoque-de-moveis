@@ -9,6 +9,12 @@
         private $preco;
         private $quantidade;
 
+        //Relatórios
+        public $entrada_data;
+        public $entrada_quantidade;
+        public $saida_data;
+        public $saida_quantidade;
+
         public function setCodigo($codigo){
             $this->codigo = $codigo;
         }
@@ -58,7 +64,6 @@
         }
 
         ################## CRUD ##################
-
         public function insertProduto($produto)
         {
           $ok         = false;
@@ -160,7 +165,6 @@
           return $produtos;
         }
 
-
         public function getProdutos($pagination=false, $num=0) {
           $conn       = Database::getConnection();
 
@@ -230,7 +234,6 @@
           return $ok;
         }
 
-
         public function deletarProdutoById($id)
         {
           $ok         = false;
@@ -246,9 +249,7 @@
           $conn->close();
           return $ok;
         }
-
         # FIM CRUD #
-
 
         ##################### ENTRADAS E SAIDAS DE PRODUTOS #####################
 
@@ -299,11 +300,12 @@
           $conn       = Database::getConnection();
           $stmt       = $conn->prepare("
                                         SELECT
-                                          *
+                                          produto_entrada.*, produto.*
                                         FROM
-                                          produto_entrada
+                                          produto_entrada, produto
                                         WHERE
                                           produto_entrada.produto_entrada_data BETWEEN ? AND ?
+                                        AND produto_entrada.produto_codigo = produto.produto_codigo
                                         ");
           $stmt->bind_param("ss", $data_inicial, $data_final);
           if($stmt->execute()){
@@ -311,7 +313,15 @@
               $produtos = array();
               while($row = $result->fetch_assoc()) {
                 $produto = new Produto();
-                //Não sei se vocês querem que eu retorne mais algo aqui além do objeto
+                //Não sei se vocês querem que eu retorne mais algo aqui além disso
+                $produto->codigo              = $row["produto_codigo"];
+                $produto->nome                = $row["produto_nome"];
+                $produto->descricao           = $row["produto_descricao"];
+                $produto->img                 = $row["produto_img"];
+                $produto->preco               = $row["produto_preco"];
+                $produto->quantidade          = $row["produto_quantidade"];
+                $produto->entrada_data        = $row["produto_entrada_data"];
+                $produto->entrada_quantidade  = $row["produto_entrada_quantidade"];
                 array_push($produtos, $produto);
               }
               return $produtos;
@@ -326,11 +336,12 @@
           $conn       = Database::getConnection();
           $stmt       = $conn->prepare("
                                         SELECT
-                                          *
+                                          produto_saida.*, produto.*
                                         FROM
-                                          produto_saida
+                                          produto_saida, produto
                                         WHERE
                                           produto_saida.produto_saida_data BETWEEN ? AND ?
+                                        AND produto_saida.produto_codigo = produto.produto.codigo
                                         ");
           $stmt->bind_param("ss", $data_inicial, $data_final);
           if($stmt->execute()){
@@ -338,7 +349,15 @@
               $produtos = array();
               while($row = $result->fetch_assoc()) {
                 $produto = new Produto();
-                //Não sei se vocês querem que eu retorne mais algo aqui além do objeto
+                //Não sei se vocês querem que eu retorne mais algo aqui além disso
+                $produto->codigo              = $row["produto_codigo"];
+                $produto->nome                = $row["produto_nome"];
+                $produto->descricao           = $row["produto_descricao"];
+                $produto->img                 = $row["produto_img"];
+                $produto->preco               = $row["produto_preco"];
+                $produto->quantidade          = $row["produto_quantidade"];
+                $produto->saida_data          = $row["produto_saida_data"];
+                $produto->saida_quantidade    = $row["produto_saida_quantidade"];
                 array_push($produtos, $produto);
               }
               return $produtos;
