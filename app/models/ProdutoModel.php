@@ -311,7 +311,7 @@
               $produtos = array();
               while($row = $result->fetch_assoc()) {
                 $produto = new Produto();
-                //Não sei se precisa colocar mais algo aqui
+                //Não sei se vocês querem que eu retorne mais algo aqui além do objeto
                 array_push($produtos, $produto);
               }
               return $produtos;
@@ -338,7 +338,7 @@
               $produtos = array();
               while($row = $result->fetch_assoc()) {
                 $produto = new Produto();
-                //Não sei se precisa colocar mais algo aqui
+                //Não sei se vocês querem que eu retorne mais algo aqui além do objeto
                 array_push($produtos, $produto);
               }
               return $produtos;
