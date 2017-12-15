@@ -9,10 +9,10 @@ Colaboradores:
 
 Instalação
 
-- O projeto precisa estar na raiz do servidor (exemplo: htdocs/estoque-de-moveis ; www/estoque-de-moveis)
-- Certifique se a pasta do projeto está com nome estoque-de-moveis. (tire o '-master' do final)
-- executar o criaBanco.php. Exemplo : localhost/estoque-de-moveis/criaBanco.php
+- O projeto precisa estar na raiz do servidor (exemplo: htdocs/estoque-de-moveis ; www/estoque-de-moveis);
+- Certifique se a pasta do projeto está com nome estoque-de-moveis. (tire o '-master' do final);
+- Executar o criaBanco.php. Exemplo : localhost/estoque-de-moveis/criaBanco.php
 
-usuário default: 
+Usuário default: 
 email@email.com
 senha: 123
