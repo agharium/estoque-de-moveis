@@ -13,6 +13,6 @@ Instalação
 - Certifique se a pasta do projeto está com nome estoque-de-moveis. (tire o '-master' do final);
 - Executar o criaBanco.php. Exemplo : localhost/estoque-de-moveis/criaBanco.php
 
-Usuário default<br>
+Usuário default:<br>
 email@email.com<br>
 senha: 123
